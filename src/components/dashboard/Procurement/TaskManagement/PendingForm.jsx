@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import SidePopupBox from '@/utils/SidePopupBox'
 import styles from './TaskManagement.module.css'
 import PendingFormTwo from './PendingFormTwo'
+import CentralPopupBox from '@/utils/CentralPopupBox';
 
 
 function PendingForm({ btnClass, btnName }) {
@@ -9,12 +10,12 @@ function PendingForm({ btnClass, btnName }) {
     const onCompleteClick = () => setCompleteclick(!completeclick)
 
     // const onSubmitClick = (e) => e.stopPropagation()
-// 
+    // 
     return (
         <>
 
-            <SidePopupBox btnStyling={btnClass} btnText={btnName} title={"Pending Tasks"} >
-                {!completeclick && <form className={styles.approvedForm}  onSubmit={(e) => { e.preventDefault() }}>
+            <CentralPopupBox btnClass={"table-pending-btn"} btnName={btnName} title={"Pending Tasks"} >
+                {!completeclick && <form className={styles.approvedForm} onSubmit={(e) => { e.preventDefault() }}>
                     <label>Date : </label>
                     <input type="date" />
 
@@ -62,16 +63,18 @@ function PendingForm({ btnClass, btnName }) {
                     <label>Description : </label>
                     <textarea rows="2" />
 
-                    <div className={styles.approvedActions}>
-                        <button className={styles.approveBtn}>Cancel</button>
-                        <button onClick={onCompleteClick} className={styles.declineBtn}>Completed</button>
-
-
-                        {/* {btnName === "Hold" && <button type="button" className={styles.editButton}>Edit</button>} */}
+                    
+                    <div className="d-flex justify-content-center">
+                        <button className="cancelbtn">
+                            Cancel
+                        </button>
+                        <button  onClick={onCompleteClick} className="submitbtn">
+                            Completed
+                        </button>
                     </div>
                 </form>}
-                {completeclick && <PendingFormTwo />}
-            </SidePopupBox>
+                {completeclick && <PendingFormTwo onCompleteClick={onCompleteClick} />}
+            </CentralPopupBox>
         </>
     )
 }

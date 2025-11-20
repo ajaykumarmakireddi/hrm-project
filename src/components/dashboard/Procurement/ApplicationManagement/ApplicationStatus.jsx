@@ -26,7 +26,7 @@ function ApplicationStatus({navigate}) {
               <td>22-11-202</td>
               <td>Pay Slips</td>
               <td>
-                <button className={styles.completedBtn}>Completed</button>
+                <button className={"table-approved-btn"}>Completed</button>
               </td>
             </tr>
           </tbody>

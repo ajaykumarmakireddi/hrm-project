@@ -64,8 +64,8 @@ export default function CreateEmployee({navigate}) {
             </div>
 
             <div className={styles.buttonGroup}>
-              <button className={styles.submit}>Submit</button>
-              <button className={styles.cancel}>Cancel</button>
+              <button className={"table-approved-btn"}>Submit</button>
+              <button className={"table-declined-btn"}>Cancel</button>
             </div>
           </div>
         </div>

@@ -106,7 +106,7 @@ const ManageEmployees = ({navigate}) => {
                 </td>
                 <td>
                   <button
-                    className={styles.viewBtn}
+                    className={"table-view-btn"}
                     onClick={() => handleView(emp)}
                   >
                     View
@@ -114,7 +114,7 @@ const ManageEmployees = ({navigate}) => {
                   <CentralPopupBox
                     ref={deletePopupRef}
                     btnName="Delete"
-                    btnClass={styles.deleteBtn}
+                    btnClass={"table-declined-btn"}
                   >
                     <div className={styles.popupContent}>
 

@@ -24,7 +24,7 @@ function App() {
 
   useEffect(() => navigate("/login"), []);
   // useEffect(() => navigate('/admin') , [])
-  console.log("Something");
+ 
 
   const [role, setRole] = useState();
 

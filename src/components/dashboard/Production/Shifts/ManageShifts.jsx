@@ -55,7 +55,7 @@ function ManageShifts({ navigate }) {
               <td>1234567890</td>
               <td>Intern</td>
               <td>1</td>
-              <td>
+              <td className="table-view-btn">
                 <SidePopupForm btnName={"view"} />
               </td>
             </tr>

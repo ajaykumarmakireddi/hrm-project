@@ -1,11 +1,12 @@
 import SidePopupBox from '@/utils/SidePopupBox'
 import React from 'react'
 import styles from '../AttendanceManagement/AttendanceForm.module.css'
+import CentralPopupBox from '@/utils/CentralPopupBox'
 
 function PendingsForm({ btnClass, btnName }) {
     return (
         <>
-            <SidePopupBox btnStyling={btnClass} btnText={btnName} title={"Leave Details"} >
+            <CentralPopupBox btnClass={btnClass} btnName={btnName} title={"Leave Details"} >
                 {<form className={styles.approvedForm}>
                     <div className={styles.approvedRow}>
                         <div className={styles.approvedFeild}>
@@ -74,7 +75,7 @@ function PendingsForm({ btnClass, btnName }) {
                         {btnName === "Pending" && <button type="button" className={styles.editButton}>Edit</button>}
                     </div>
                 </form>}
-            </SidePopupBox>
+            </CentralPopupBox>
 
         </>
     )

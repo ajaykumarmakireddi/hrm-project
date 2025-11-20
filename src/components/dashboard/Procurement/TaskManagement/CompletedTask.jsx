@@ -3,7 +3,7 @@ import styles from './TaskManagement.module.css'
 import RequestForm from '../AttendanceManagement/RequestForm'
 import CompletedForm from './CompletedForm'
 
-function CompletedTask({navigate}) {
+function CompletedTask({navigate }) {
   // 
   return (
     <>
@@ -29,7 +29,7 @@ function CompletedTask({navigate}) {
               <td>Decrease KMs in Vadlamudi BMC Routes</td>
               <td>2024-11-26</td>
               <td>Karthik</td>
-              <td className={styles.completedBtn}>
+              <td className="table-approved-btn">
                 {/* <button>Completed</button> */}
                 <CompletedForm btnName={"Completed"} />
               </td>

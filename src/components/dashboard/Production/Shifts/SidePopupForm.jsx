@@ -1,12 +1,13 @@
 import SidePopupBox from '@/utils/SidePopupBox'
 import React from 'react'
 import styles from '../../../../components/dashboard/Procurement/AttendanceManagement/AttendanceForm.module.css'
+import CentralPopupBox from '@/utils/CentralPopupBox'
 
 
 function SidePopupForm({ btnName }) {
     return (
         <>
-            <SidePopupBox btnStyling={styles.viewButtonRequest} btnText={btnName} title={"Delete Shift"} >
+            <CentralPopupBox btnStyling={styles.viewButtonRequest} btnName={btnName} title={"Delete Shift"} >
                 {<form className={styles.approvedForm}>
 
 
@@ -41,12 +42,12 @@ function SidePopupForm({ btnName }) {
                         <option value="">some data</option>
                     </select>
                    
-                    <div className={styles.approvedActions}>
-                        <button type="submit" className={styles.approveBtn}>Submit</button>
-                        <button type="button" className={styles.declineBtn}>Cancel</button>
+                    <div>
+                        <button type="submit" className={"table-approved-btn"}>Submit</button>
+                        <button type="button" className={"table-declined-btn"}>Cancel</button>
                     </div>
                 </form>}
-            </SidePopupBox>
+            </CentralPopupBox>
 
         </>
     )

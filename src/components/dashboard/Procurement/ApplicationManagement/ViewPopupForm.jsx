@@ -1,13 +1,14 @@
 import React from 'react'
 import SidePopupBox from '@/utils/SidePopupBox'
 import styles from '../AttendanceManagement/AttendanceForm.module.css';
+import CentralPopupBox from '@/utils/CentralPopupBox';
 
 
 function ViewPopupForm({ btnName}) {
     return (
         <>
 
-            <SidePopupBox btnStyling={styles.viewButtonRequest} btnText={btnName} title={"Application Details"} >
+            <CentralPopupBox btnStyling={styles.viewButtonRequest} btnName={btnName} title={"Application Details"} >
                 {<form className={styles.approvedForm}>
                     <label>Date : </label>
                     <input type="date" />
@@ -57,12 +58,12 @@ function ViewPopupForm({ btnName}) {
                     <label>Reason : </label>
                     <textarea rows="2" />
 
-                    <div className={styles.approvedActions}>
-                        <button type="submit" className={styles.approveBtn}>Approve</button>
-                        <button type="button" className={styles.declineBtn}>Decline</button>
+                    <div >
+                        <button type="submit" className={"table-approved-btn"}>Approve</button>
+                        <button type="button" className={"table-declined-btn"}>Decline</button>
                     </div>
                 </form>}
-            </SidePopupBox>
+            </CentralPopupBox>
         </>
     )
 }
