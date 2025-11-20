@@ -1,25 +1,33 @@
-import React, { useState } from 'react';
-import styles from './AttendanceForm.module.css';
-import WeekoffPopup from './WeekoffPopup';
-import RolesPopup from './RolesPopup';
+import React, { useState } from "react";
+import styles from "./AttendanceForm.module.css";
+import WeekoffPopup from "./WeekoffPopup";
+import RolesPopup from "./RolesPopup";
 
-function WeekoffSettings() {
+function WeekoffSettings({ navigate }) {
   const [filter, setFilter] = useState("employee");
-  const [role, setRole] = useState('');
+  const [role, setRole] = useState("");
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [selectedRows, setSelectedRows] = useState([]);
   // const [openPopup, setOpenPopup] = useState();
 
-
-
   const dummyData = [
-    { id: 'KA0045', name: 'Karthik', mobile: '8521478965', email: 'karthik@gmail.com' },
-    { id: 'KA0046', name: 'Ajay', mobile: '1234567890', email: 'ajay@gmail.com' }
+    {
+      id: "KA0045",
+      name: "Karthik",
+      mobile: "8521478965",
+      email: "karthik@gmail.com",
+    },
+    {
+      id: "KA0046",
+      name: "Ajay",
+      mobile: "1234567890",
+      email: "ajay@gmail.com",
+    },
   ];
 
   const handleSelectAll = (e) => {
     if (e.target.checked) {
-      setSelectedRows(dummyData.map(emp => emp.id));
+      setSelectedRows(dummyData.map((emp) => emp.id));
     } else {
       setSelectedRows([]);
     }
@@ -27,24 +35,28 @@ function WeekoffSettings() {
 
   const handleSelectRow = (id) => {
     if (selectedRows.includes(id)) {
-      setSelectedRows(prev => prev.filter(rowId => rowId !== id));
+      setSelectedRows((prev) => prev.filter((rowId) => rowId !== id));
     } else {
-      setSelectedRows(prev => [...prev, id]);
+      setSelectedRows((prev) => [...prev, id]);
     }
   };
 
-
-  const isAllSelected = dummyData.length > 0 && selectedRows.length === dummyData.length;
-
+  const isAllSelected =
+    dummyData.length > 0 && selectedRows.length === dummyData.length;
 
   return (
     <>
+      <p className="path">
+        <span onClick={() => navigate("/attendance")}>Attendance</span>{" "}
+        <i className="bi bi-chevron-right"></i> Weekoff - Settings
+      </p>
+
       <div className={styles.weekContainer}>
         <select
           value={filter}
           onChange={(e) => {
             setFilter(e.target.value);
-            setRole(''); // reset role when switching
+            setRole(""); // reset role when switching
           }}
           className={styles.dropdown}
         >
@@ -53,7 +65,7 @@ function WeekoffSettings() {
           <option value="role">Role Based</option>
         </select>
 
-        {filter === 'role' && (
+        {filter === "role" && (
           <select
             value={role}
             onChange={(e) => setRole(e.target.value)}
@@ -70,9 +82,9 @@ function WeekoffSettings() {
       </div>
 
       {/* 👇 Employee Based Table */}
-      {filter === 'employee' && (
-        <div className={styles.tableContainer}>
-          <table className="circular-table" >
+      {filter === "employee" && (
+        <div className="d-flex justify-content-center">
+          <table className="square-table w-75">
             <thead>
               <tr>
                 <th>S.no</th>
@@ -85,7 +97,7 @@ function WeekoffSettings() {
             </thead>
             <tbody>
               {[1, 2, 3].map((item, i) => (
-                <tr key={i} className="circular-table-row">
+                <tr key={i}>
                   <td>{i + 1}</td>
                   <td>KA0046</td>
                   <td>Karthik</td>
@@ -98,7 +110,6 @@ function WeekoffSettings() {
                     >
                       View
                     </button>
-
                   </td>
                 </tr>
               ))}
@@ -108,7 +119,7 @@ function WeekoffSettings() {
       )}
 
       {/* 👇 Role Based Dropdown */}
-      {filter === 'role' && (
+      {filter === "role" && (
         <>
           {/* <div className={styles.weekContainer}>
             <select
@@ -124,9 +135,9 @@ function WeekoffSettings() {
           </div> */}
 
           {/* 👇 Table shown only when a role is selected */}
-          {filter === 'role' && role && (
-            <div className={styles.tableContainer}>
-              <table className="circular-table">
+          {filter === "role" && role && (
+            <div className="d-flex justify-content-center">
+              <table className="square-table w-75">
                 <thead>
                   <tr>
                     <th>
@@ -141,7 +152,6 @@ function WeekoffSettings() {
                     <th>Name</th>
                     <th>Mobile</th>
                     <th>Email</th>
-
                   </tr>
                 </thead>
                 <tbody>
@@ -170,7 +180,12 @@ function WeekoffSettings() {
                     </tr>
                   ))}
                 </tbody>
-                <RolesPopup role={role} btnClass={styles.viewButtonWeek} btnName={"view"} selectedRows={selectedRows}/>
+                <RolesPopup
+                  role={role}
+                  btnClass={styles.viewButtonWeek}
+                  btnName={"view"}
+                  selectedRows={selectedRows}
+                />
               </table>
             </div>
           )}
@@ -187,9 +202,6 @@ function WeekoffSettings() {
 }
 
 export default WeekoffSettings;
-
-
-
 
 // import React, { useState } from 'react';
 // import styles from './AttendanceForm.module.css';

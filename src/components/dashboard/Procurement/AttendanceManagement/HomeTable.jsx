@@ -5,7 +5,7 @@ import styles from './AttendanceForm.module.css';
 function HomeTable() {
     return (
         <>
-            <table className="circular-table">
+            <table className="square-table w-75">
                 <thead>
                     <tr>
                         <th>S.no</th>
@@ -22,7 +22,7 @@ function HomeTable() {
                 </thead>
                 <tbody>
                     {[1, 2, 3].map((item, i) => (
-                        <tr key={i} className="circular-table-row">
+                        <tr key={i}>
                             <td >{i + 1}</td>
                             <td>00-00-0000</td>
                             <td>G1</td>

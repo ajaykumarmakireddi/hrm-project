@@ -5,7 +5,7 @@ import styles from './AttendanceForm.module.css';
 function AbsentTable() {
     return (
         <>
-                <table className="circular-table">
+                <table className="square-table w-75">
                     <thead>
                         <tr>
                             <th>S.no</th>
