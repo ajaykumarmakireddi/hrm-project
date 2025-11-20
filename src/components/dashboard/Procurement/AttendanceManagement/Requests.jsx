@@ -4,7 +4,7 @@ import PresentList from "./PresentList";
 import ApprovedForm from "./ApprovedForm";
 import RequestForm from "./RequestForm";
 
-function Requests({navigate}) {
+function Requests({ navigate }) {
   const requestsList = [
     {
       sn: 1,
@@ -72,7 +72,7 @@ function Requests({navigate}) {
 
           <tbody>
             {requestsList.map((req) => (
-              <tr className="circular-table-row">
+              <tr>
                 <td>{req.sn}</td>
                 <td>{req.date}</td>
                 <td>{req.shift}</td>
@@ -87,10 +87,10 @@ function Requests({navigate}) {
                     btnName={req.status}
                     btnClass={
                       req.status === "Approved"
-                        ? styles.approveButton
+                        ? "table-approved-btn"
                         : req.status === "Hold"
-                        ? styles.holdButton
-                        : styles.declineButton
+                        ? "table-pending-btn"
+                        : "table-declined-btn"
                     }
                   />
                 </td>

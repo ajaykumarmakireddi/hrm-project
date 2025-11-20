@@ -13,9 +13,9 @@
   background-color: transparent;
 }
 
-.printBtn path{
+.printBtn path {
   fill: black;
-} 
+}
 
 .excelBtn svg * {
   fill: black !important;
@@ -35,9 +35,8 @@
   border: 1.5px solid #0e6499;
 }
 
-
-
-.submitbtn,.generatebtn,
+.submitbtn,
+.generatebtn,
 .cancelbtn {
   min-width: 80px;
   height: 27px;
@@ -52,7 +51,7 @@
   /* box-shadow: 1px 1px 3px #333; */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.generatebtn{
+.generatebtn {
   align-items: center;
   display: flex;
   align-items: center;
@@ -79,9 +78,38 @@
   background-color: #97ef8f;
 }
 
-
-.submitbtn:active, .cancelbtn:active {
+.submitbtn:active,
+.cancelbtn:active {
   transform: scale(0.97);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
+.table-view-btn,
+.table-pending-btn,
+.table-approved-btn,
+.table-declined-btn {
+  padding: 2px 6px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px #11111182;
+}
+
+.table-view-btn {
+  background-color: #3d5cc2;
+  color: white;
+}
+
+.table-pending-btn {
+  background-color: #c5be3f;
+  color: white;
+  min-width: 80px;
+}
+.table-approved-btn {
+  background-color: #2fa924;
+  color: white;
+   min-width: 80px;
+}
+.table-declined-btn {
+  background-color: #cb3333;
+  color: white;
+   min-width: 80px;
+}

@@ -38,7 +38,10 @@ const AttendanceForm = () => {
                         <LeaveSettings />
                     </Suspense>
                 } /> */}
-      <Route path="/leave-settings" element={<LeaveSettings navigate={navigate} />} />
+      <Route
+        path="/leave-settings"
+        element={<LeaveSettings navigate={navigate} />}
+      />
       <Route
         path="/weekoff-settings"
         element={
