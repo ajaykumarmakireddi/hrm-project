@@ -313,7 +313,7 @@
 /* approvals-table.css */
 
 .viewButtonRequest {
-  background-color: #2FA924;
+  /* background-color: #2FA924; */
   border: none;
   font-weight: bold;
   border-radius: 15px;
@@ -754,7 +754,7 @@ button.active-central-navbar,
 }
 
 .square-table tbody td {
-  background-color: #ffffff;
+  /* background-color: #ffffff; */
   font-weight: 500;
   font-size: 14px;
   padding: 5px;

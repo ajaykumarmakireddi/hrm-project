@@ -8,7 +8,7 @@ function PendingFormTwo({ onCompleteClick }) {
     const handleButtonClick = () => {
         fileInputRef.current.click(); // trigger hidden input
     };
-// 
+    // 
     const handleFileChange = (event) => {
         const files = event.target.files;
         console.log("Selected files:", files);
@@ -54,7 +54,7 @@ function PendingFormTwo({ onCompleteClick }) {
 
                 <label>Given By : </label>
                 <input type="text" placeholder="" /> */}
-{/* 
+                {/* 
                 <div className={styles.approvedRow}>
                     <div className={styles.approvedFeild}>
                         <label>Last Date to Submit : </label>
@@ -84,12 +84,15 @@ function PendingFormTwo({ onCompleteClick }) {
                 <label>Description and Submission: </label>
                 <textarea rows="2" />
 
-                <div className={styles.approvedActions}>
-                    <button type="submit" className={styles.approveBtn} onClick={onCompleteClick}>Cancel</button>
+                
 
-                    <button type="button" className={styles.declineBtn}>Submit</button>
-
-                    {/* {btnName === "Hold" && <button type="button" className={styles.editButton}>Edit</button>} */}
+                <div className="d-flex justify-content-center">
+                    <button className="cancelbtn" onClick={onCompleteClick}>
+                        Cancel
+                    </button>
+                    <button onClick={onCompleteClick} className="submitbtn">
+                        Submit
+                    </button>
                 </div>
             </form>}
 

@@ -86,7 +86,7 @@ function PendingsTable({ navigate }) {
               <td>{req.email}</td>
               <td>
                 {/* <RequestForm btnName={req.status} btnClass={req.status === "Approved" ? styles.approveButton : req.status === "Pending" ? styles.holdButton : styles.declineButton} /> */}
-                <PendingsForm btnName={req.status} btnClass={req.status === "Approved" ? styles.approveButton : req.status === "Pending" ? styles.holdButton : styles.declineButton} />
+                <PendingsForm btnName={req.status} btnClass={req.status === "Approved" ? "table-approved-btn" : req.status === "Pending" ? "table-pending-btn" : "table-declined-btn"} />
               </td>
 
             </tr>

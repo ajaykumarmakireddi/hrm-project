@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SidePopupBox from "@/utils/SidePopupBox";
 import styles from "./AssignRole.module.css";
+import CentralPopupBox from "@/utils/CentralPopupBox";
 
 const employeeData = [
   {
@@ -86,7 +87,7 @@ const AssignRole = ({navigate}) => {
                 <td>{emp.roles.join(", ")}</td>
                 <td>
                   <button
-                    className={styles.viewButton}
+                    className={"table-view-btn"}
                     onClick={() => handleViewClick(emp)}
                   >
                     View
@@ -97,7 +98,7 @@ const AssignRole = ({navigate}) => {
           </tbody>
         </table>
 
-        <SidePopupBox
+        <CentralPopupBox
           title="Employee Role Assignment"
           open={popupOpen}
           onClose={() => setPopupOpen(false)}
@@ -191,7 +192,7 @@ const AssignRole = ({navigate}) => {
               </div>
             </div>
           )}
-        </SidePopupBox>
+        </CentralPopupBox>
       </div>
     </>
   );

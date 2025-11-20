@@ -29,7 +29,7 @@ function StatusTask({navigate}) {
               <td>Decrease KMs in Vadlamudi BMC Routes</td>
               <td>2024-11-26</td>
               <td>Karthik</td>
-              <td className={styles.completedBtn}>
+              <td className={"table-approved-btn"}>
                 {/* <button>Completed</button> */}
                 <StatusForm btnName={"Complete"} />
               </td>
@@ -39,7 +39,7 @@ function StatusTask({navigate}) {
               <td>Decrease KMs in Vadlamudi BMC Routes</td>
               <td>2024-11-26</td>
               <td>Karthik</td>
-              <td className={styles.pendingBtn}>
+              <td className={"table-pending-btn"}>
                 {/* <button>Pending</button> */}
                 <StatusForm btnName={"Pending"} />
               </td>

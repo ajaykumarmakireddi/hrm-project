@@ -28,7 +28,7 @@ function PendingTask({navigate}) {
               <td>Decrease KMs in Vadlamudi BMC Routes</td>
               <td>2024-11-26</td>
               <td>Karthik</td>
-              <td className={styles.pendingBtn}>
+              <td >
                 {/* <button>
                   Pending
                 </button> */}
