@@ -31,7 +31,7 @@ function AttendanceHomeTable() {
             className={`homebtn`}
             onClick={() => navigate("/attendance/leave-settings")}
           >
-            Leave Settings
+            Attendance Settings
           </button>
           <button
             className={`homebtn`}

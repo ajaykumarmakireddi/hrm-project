@@ -24,7 +24,7 @@ function AbsentTable() {
               <td></td>
 
               <td>
-                <button className={styles.viewButton}>Absent</button>
+                <button className={"table-pending-btn"}>Absent</button>
                 {/* <ApprovedForm btnName={"Absent"}/> */}
               </td>
             </tr>

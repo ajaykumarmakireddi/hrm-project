@@ -105,7 +105,7 @@ function WeekoffSettings({ navigate }) {
                   <td>karthik@gmail.com</td>
                   <td>
                     <button
-                      className={styles.viewButtonRequest}
+                      className={"table-view-btn"}
                       onClick={() => setSelectedEmployee(dummyData[i])}
                     >
                       View

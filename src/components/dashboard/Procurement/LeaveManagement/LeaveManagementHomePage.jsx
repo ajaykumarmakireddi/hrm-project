@@ -24,7 +24,7 @@ function LeaveManagementHomePage() {
                     </button>
                     <button
                         className={`homebtn`}
-                        onClick={() => navigate("/leave-management")}   
+                        onClick={() => navigate("/leave-management/leave-settings")}   
                     >
                         Leave Settings
                     </button>

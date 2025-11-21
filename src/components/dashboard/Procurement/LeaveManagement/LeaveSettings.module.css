@@ -1,0 +1,141 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.leaveBox {
+  display: flex;
+  width: 900px;
+  background: #eeeeee;
+  border-radius: 10px;
+  border: 2px solid #c0d4ea;
+  min-height: 350px;
+  gap: 20px;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: #42759475;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  border-radius: 8px;
+}
+
+.sidebar p {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+}
+
+.sidebar label {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.newTypeInput {
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 14px;
+}
+
+/* Grid */
+.grid {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  color: #444;
+  text-align: center;
+  position: relative;
+}
+.headerRow p {
+  max-width: 95%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+.lgLabel {
+  width: 95%;
+}
+
+/* Rows */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+}
+
+.input {
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 14px;
+  width: 95%;
+}
+
+.deleteBtn {
+  position: absolute;
+  right: -50px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.deleteBtn:hover {
+  color: #b40000;
+}
+
+/* Buttons */
+.actionContainer {
+  width: 900px;
+  display: flex;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+.editButton {
+  background-color: #0070ac;
+  color: white;
+  padding: 7px 25px;
+  border-radius: 18px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.addButton {
+  background-color: #67d352;
+  color: white;
+  padding: 7px 25px;
+  border-radius: 18px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancelButton {
+  background-color: #f57679;
+  color: white;
+  padding: 7px 25px;
+  border-radius: 18px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}

@@ -2,6 +2,7 @@ import React from "react";
 import { X } from "lucide-react";
 import SidePopupBox from "@/utils/SidePopupBox";
 import styles from "./AttendanceForm.module.css";
+import CentralPopupBox from "@/utils/CentralPopupBox";
 
 function RequestForm({ btnName, btnClass }) {
   return (
@@ -41,9 +42,9 @@ function RequestForm({ btnName, btnClass }) {
                 </form>
             </div> */}
 
-      <SidePopupBox
-        btnStyling={btnClass}
-        btnText={btnName}
+      <CentralPopupBox
+        btnClass={btnClass}
+        btnName={btnName}
         title={"Attendance Details"}
       >
         {
@@ -104,7 +105,7 @@ function RequestForm({ btnName, btnClass }) {
             </div>
           </form>
         }
-      </SidePopupBox>
+      </CentralPopupBox>
     </>
   );
 }

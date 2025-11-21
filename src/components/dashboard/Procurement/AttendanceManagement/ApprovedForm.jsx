@@ -1,14 +1,14 @@
 import React from "react";
 import { X } from "lucide-react";
-import SidePopupBox from "@/utils/SidePopupBox";
 import styles from "./AttendanceForm.module.css";
+import CentralPopupBox from "@/utils/CentralPopupBox";
 
 function ApprovedForm({ btnName }) {
   return (
     <>
-      <SidePopupBox
-        btnStyling={"table-view-btn"}
-        btnText={btnName}
+      <CentralPopupBox
+        btnClass={"table-approved-btn"}
+        btnName={btnName}
         title={"Attendance Details"}
       >
         {
@@ -57,17 +57,17 @@ function ApprovedForm({ btnName }) {
             <label>Reason : </label>
             <textarea rows="2" />
 
-            <div className={styles.approvedActions}>
-              <button type="submit" className={styles.approveBtn}>
+            <div className="d-flex justify-content-center">
+              <button type="submit" className="submitbtn">
                 Approve
               </button>
-              <button type="button" className={styles.declineBtn}>
+              <button type="button" className="cancelbtn">
                 Decline
               </button>
             </div>
           </form>
         }
-      </SidePopupBox>
+      </CentralPopupBox>
     </>
   );
 }
