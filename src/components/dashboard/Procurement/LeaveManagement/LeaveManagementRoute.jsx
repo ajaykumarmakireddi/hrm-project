@@ -4,6 +4,7 @@ import LeaveManagementHeader from './LeaveManagementHeader';
 import { lazy, Suspense } from 'react';
 import SquareTableSkeleton from '@/SkeletonLoaders/SquareTableSkeleton';
 import LeaveManagementHomePage from './LeaveManagementHomePage';
+import LeaveSettings from './LeaveSettings';
 
 const PendingsTable = lazy(() => import('./PendingsTable'))
 const ApprovalsTable = lazy(() => import('./ApprovalsTable'))
@@ -23,6 +24,11 @@ const LeaveManagementRoute = () => {
             <Route path='/pendings' element={
                 <Suspense fallback={<SquareTableSkeleton />}>
                     <PendingsTable navigate={navigate} />
+                </Suspense>
+            } />
+             <Route path='/leave-settings' element={
+                <Suspense fallback={<SquareTableSkeleton />}>
+                    <LeaveSettings navigate={navigate} />
                 </Suspense>
             } />
             <Route path='/approvals' element={
