@@ -1,0 +1,225 @@
+/* core layout */
+.page {
+  padding: 18px;
+  font-family: Arial, sans-serif;
+  color: #243547;
+}
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+.title {
+  font-size: 22px;
+  font-weight: 700;
+}
+.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.primary {
+  background: #2fa924;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.secondary {
+  background: #0070ac;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.tertiary {
+  background: #f0f4fb;
+  color: #243547;
+  border: 1px solid #d6e0ef;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.filters input,
+.filters select {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #d6e0ef;
+}
+
+/* Table */
+.tableWrap {
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #e6eefb;
+  padding: 6px;
+  overflow: auto;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th {
+  background: #7892cb;
+  color: white;
+  padding: 10px;
+  text-align: left;
+  font-size: 13px;
+}
+.table td {
+  padding: 10px;
+  border-bottom: 1px solid #f0f4fb;
+  vertical-align: middle;
+  font-size: 14px;
+}
+.link {
+  background: transparent;
+  border: none;
+  color: #0070ac;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* badge & actions */
+.badge {
+  border-radius: 12px;
+  padding: 6px 8px;
+  border: none;
+  cursor: pointer;
+}
+.rowActions {
+  display: flex;
+  gap: 6px;
+}
+.rowActions button {
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.rowActions .delete {
+  background: #c95151;
+  color: white;
+  border: none;
+}
+
+/* pagination */
+.pagination {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Modal generic */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal {
+  background: white;
+  width: 820px;
+  max-width: 95%;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+}
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+.formGrid label {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+}
+.formGrid input[type="time"],
+.formGrid input[type="date"],
+.formGrid input[type="number"],
+.formGrid input[type="text"],
+.formGrid select,
+.formGrid textarea {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #d6e0ef;
+}
+.formGrid textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* modal actions */
+.modalActions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+/* chips for assign modal */
+.chip {
+  background: #f2f7fb;
+  border: 1px solid #d6e0ef;
+  padding: 6px 10px;
+  border-radius: 18px;
+  cursor: pointer;
+}
+.chipSelected {
+  background: #0070ac;
+  color: white;
+  border-radius: 18px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+/* calendar stub */
+.calendarStub {
+  padding: 18px;
+  border: 1px dashed #d6e0ef;
+  border-radius: 8px;
+  background: #fff;
+}
+.calendarCard {
+  padding: 10px;
+  border: 1px solid #eef6ff;
+  border-radius: 8px;
+  width: 220px;
+  background: #fbfeff;
+}
+
+/* small responsive */
+@media (max-width: 820px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  .tableWrap {
+    overflow-x: auto;
+  }
+}
