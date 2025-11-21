@@ -107,7 +107,7 @@ const NotificationsSettings = ({ navigate }) => {
       <h4 className={styles.title}>Notification Settings</h4>
 
       <div className={styles.tableContainer}>
-        <table className={"square-table"}>
+        <table className={"square-table w-75"}>
           <thead>
             <tr>
               <th>Notify Manager On Request</th>

@@ -109,7 +109,7 @@ const LeaveBalanceCredit = ({ navigate }) => {
       <h4 className={styles.title}>Leave Balance / Credit Rules</h4>
 
       <div className={styles.tableContainer}>
-        <table className={"square-table"}>
+        <table className={"square-table w-75"}>
           <thead>
             <tr>
               <th>Prorate Accrual For New Joiners</th>

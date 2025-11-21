@@ -102,7 +102,7 @@ const HolidayWeekendsApplicability = ({ navigate }) => {
       <h4 className={styles.title}>Holiday & Weekends Applicability</h4>
 
       <div className={styles.tableContainer}>
-        <table className={"square-table"}>
+        <table className={"square-table w-75"}>
           <thead>
             <tr>
               <th>Include Weekends in Leave Count</th>

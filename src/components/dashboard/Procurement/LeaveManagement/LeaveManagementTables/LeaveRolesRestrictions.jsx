@@ -116,7 +116,7 @@ const LeaveRolesRestrictions = ({ navigate }) => {
       <h4 className={styles.title}>Leave Roles and Restrictions</h4>
 
       <div className={styles.tableContainer}>
-        <table className={"square-table"}>
+        <table className={"square-table w-75"}>
           <thead>
             <tr>
               {/* <th>Role / Label</th> */}
