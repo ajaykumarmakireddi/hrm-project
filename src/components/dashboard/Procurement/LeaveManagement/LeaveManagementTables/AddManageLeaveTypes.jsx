@@ -212,7 +212,8 @@ const AddManageLeaveTypes = ({ navigate }) => {
                 </td>
 
                 {/* Send Leave Balance Reminder (toggle + frequency) */}
-                <td>
+
+                {/* <td>
                   <div className="d-flex align-items-center gap-2">
                     <BootstrapSwitch
                       checked={!!row.sendBalanceReminder}
@@ -247,7 +248,7 @@ const AddManageLeaveTypes = ({ navigate }) => {
                       </span>
                     )}
                   </div>
-                </td>
+                </td> */}
 
                 {editMode && (
                   <td className={styles.actionsCell}>
@@ -316,7 +317,8 @@ const AddManageLeaveTypes = ({ navigate }) => {
                 </td>
 
                 {/* Send Leave Balance Reminder (toggle + frequency) */}
-                <td>
+
+                {/* <td>
                   <div className="d-flex align-items-center gap-2">
                     <BootstrapSwitch
                       checked={!!newEntry.sendBalanceReminder}
@@ -346,7 +348,7 @@ const AddManageLeaveTypes = ({ navigate }) => {
                       ))}
                     </select>
                   </div>
-                </td>
+                </td> */}
 
                 <td className={styles.actionsCell}>
                   <button className={styles.addBtn} onClick={handleAddEntry}>
