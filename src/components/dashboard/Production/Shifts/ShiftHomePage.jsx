@@ -220,20 +220,17 @@ export default function ShiftsPage() {
       <header className={styles.topBar}>
         <div className={styles.title}>Shifts</div>
         <div className={styles.actions}>
-          <button
-            onClick={() => setIsCreateOpen(true)}
-            className={styles.primary}
-          >
+          <button onClick={() => setIsCreateOpen(true)} className="homebtn">
             + Create Shift
           </button>
           <button
-            className={styles.secondary}
+            className="homebtn"
             onClick={() => alert("Open bulk assign (not implemented in dummy)")}
           >
             Assign Shift
           </button>
           <button
-            className={styles.secondary}
+            className="homebtn"
             onClick={() => setCalendarMode((s) => !s)}
           >
             {calendarMode ? "List View" : "Calendar View"}
@@ -286,8 +283,8 @@ export default function ShiftsPage() {
         <CalendarViewStub shifts={filtered} />
       ) : (
         <>
-          <div className={styles.tableWrap}>
-            <table className={styles.table}>
+          <div className="d-flex justify-content-center pt-3">
+            <table className="square-table w-75">
               <thead>
                 <tr>
                   <th>Shift Name</th>
@@ -365,8 +362,9 @@ export default function ShiftsPage() {
                       </button>
                     </td>
                     <td>
-                      <div className={styles.rowActions}>
+                      <div className="d-flex gap-3">
                         <button
+                          className={"table-view-btn"}
                           onClick={() => {
                             setEditShift(s);
                             setIsCreateOpen(true);
@@ -374,15 +372,21 @@ export default function ShiftsPage() {
                         >
                           Edit
                         </button>
-                        <button onClick={() => handleDuplicate(s.id)}>
+                        <button
+                          className={"table-pending-btn"}
+                          onClick={() => handleDuplicate(s.id)}
+                        >
                           Duplicate
                         </button>
-                        <button onClick={() => handleAssignOpen(s)}>
+                        <button
+                          className={"table-approved-btn"}
+                          onClick={() => handleAssignOpen(s)}
+                        >
                           Assign
                         </button>
                         <button
                           onClick={() => handleSoftDelete(s.id)}
-                          className={styles.delete}
+                          className={"table-declined-btn"}
                         >
                           Delete
                         </button>

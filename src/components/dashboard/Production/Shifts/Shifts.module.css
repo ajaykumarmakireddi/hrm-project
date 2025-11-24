@@ -137,11 +137,11 @@
   z-index: 1000;
 }
 .modal {
-  background: white;
+  background: var(--primmary-background);
   width: 820px;
   max-width: 95%;
   border-radius: 10px;
-  padding: 16px;
+  padding: 25px;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
 }
 .modalHeader {
@@ -169,6 +169,7 @@
   padding: 8px;
   border-radius: 8px;
   border: 1px solid #d6e0ef;
+  background-color: white;
 }
 .formGrid textarea {
   min-height: 80px;
@@ -211,7 +212,7 @@
   border: 1px solid #eef6ff;
   border-radius: 8px;
   width: 220px;
-  background: #fbfeff;
+  background: var(--primmary-background);
 }
 
 /* small responsive */

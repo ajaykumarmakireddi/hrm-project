@@ -83,6 +83,7 @@ function ShiftFormModal({ initial, onCreate, onSave, onClose }) {
           <label>
             Shift Name
             <input
+              type="text"
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
             />
@@ -91,6 +92,7 @@ function ShiftFormModal({ initial, onCreate, onSave, onClose }) {
           <label>
             Shift Code
             <input
+              type="text"
               value={form.code}
               onChange={(e) => setForm({ ...form, code: e.target.value })}
             />
@@ -172,17 +174,17 @@ function ShiftFormModal({ initial, onCreate, onSave, onClose }) {
           </div>
         </div>
 
-        <div className={styles.modalActions}>
+        <div className="d-flex justify-content-center p-3">
           {initial ? (
-            <button className={styles.primary} onClick={handleSave}>
+            <button className={"submitbtn"} onClick={handleSave}>
               Save
             </button>
           ) : (
-            <button className={styles.primary} onClick={handleSubmitCreate}>
+            <button className={"submitbtn"} onClick={handleSubmitCreate}>
               Create & Assign
             </button>
           )}
-          <button onClick={onClose} className={styles.secondary}>
+          <button onClick={onClose} className={"cancelbtn"}>
             Cancel
           </button>
         </div>
