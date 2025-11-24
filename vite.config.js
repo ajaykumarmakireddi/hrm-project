@@ -9,7 +9,7 @@ export default defineConfig({
 
   server:{
     host:"0.0.0.0",
-    port:5174,
-    allowedHosts: ["mdms-frontend-ajay.kernn.xyz"]
+    port:5173,
+    allowedHosts: ["mdms-frontend-hari.kernn.xyz"]
   }
 })

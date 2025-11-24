@@ -1,0 +1,145 @@
+/* Container and title */
+.title {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #2c3e50;
+  font-weight: 600;
+  padding-left: 50px;
+}
+
+/* Table wrapper for horizontal scroll on small screens */
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* Table */
+.leaveTable {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 980px;
+  background: #f7fbff;
+  border: 2px solid #c0d4ea;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+/* Head */
+.leaveTable thead tr {
+  background: linear-gradient(90deg, #e9f2fb, #dff0ff);
+}
+
+.leaveTable th,
+.leaveTable td {
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid #e6eef8;
+}
+
+/* Inputs & selects */
+.input {
+  width: 110px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #cbdcec;
+  font-size: 13px;
+}
+
+.select {
+  width: 140px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid #cbdcec;
+  font-size: 13px;
+  background: white;
+}
+
+/* Row hover */
+.leaveTable tbody tr:hover {
+  background: rgba(66, 117, 148, 0.03);
+}
+
+/* Buttons in actions */
+.actionsCell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.deleteBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #d23b3b;
+  font-size: 18px;
+}
+
+.addBtn {
+  background-color: #67d352;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Action buttons below the table */
+.actionContainer {
+  max-width: 980px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+.editButton {
+  background-color: #0070ac;
+  color: white;
+  padding: 8px 22px;
+  border-radius: 18px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.saveButton {
+  background-color: #2d9f3f;
+  color: white;
+  padding: 8px 22px;
+  border-radius: 18px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancelButton {
+  background-color: #f57679;
+  color: white;
+  padding: 8px 22px;
+  border-radius: 18px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* small screen adjustments */
+@media (max-width: 700px) {
+  .input,
+  .select {
+    width: 90px;
+    font-size: 12px;
+  }
+
+  .leaveTable th,
+  .leaveTable td {
+    padding: 8px;
+  }
+
+  .actionContainer {
+    justify-content: center;
+  }
+}

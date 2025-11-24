@@ -4,6 +4,7 @@ import AssignModal from "./AssignModal";
 import AssignedMembersModal from "./AssignedMembersModal";
 import CalendarViewStub from "./CalendarViewStub";
 import styles from "./Shifts.module.css";
+import { useNavigate } from "react-router-dom";
 
 /* Dummy initial data */
 const initialShifts = [
@@ -98,6 +99,8 @@ export default function ShiftsPage() {
         return true;
       });
   }, [shifts, filter]);
+
+  const navigate = useNavigate();
 
   // Handlers
   const handleCreate = (shiftData) => {
@@ -218,7 +221,7 @@ export default function ShiftsPage() {
   return (
     <div className={styles.page}>
       <header className={styles.topBar}>
-        <div className={styles.title}>Shifts</div>
+        {/* <div className={styles.title}>Shifts</div> */}
         <div className={styles.actions}>
           <button onClick={() => setIsCreateOpen(true)} className="homebtn">
             + Create Shift
@@ -235,6 +238,14 @@ export default function ShiftsPage() {
           >
             {calendarMode ? "List View" : "Calendar View"}
           </button>
+          <button
+            className="homebtn"
+            onClick={() => navigate("/shifts/shift-settings")}
+          >
+            Shift Settings
+          </button>
+        </div>
+        <div className="d-flex gap-3">
           <button
             className={styles.tertiary}
             onClick={() => alert("Import CSV (stub)")}
