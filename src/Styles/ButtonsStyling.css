@@ -105,7 +105,7 @@
 }
 .table-approved-btn {
   background-color: #2fa924;
-  color: white;
+  /* color: white; */
    min-width: 80px;
 }
 .table-declined-btn {

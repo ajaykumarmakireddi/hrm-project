@@ -3,57 +3,50 @@ import SidePopupBox from '@/utils/SidePopupBox'
 import styles from './TaskManagement.module.css'
 import CentralPopupBox from '@/utils/CentralPopupBox'
 
-function StatusForm({btnClass , btnName}) {
+function StatusForm({ btnClass, btnName }) {
     // 
     return (
         <>
             <CentralPopupBox btnClass={btnClass} btnName={btnName} title={"Task Status"} >
                 {<form className={styles.approvedForm}>
-                    <label>Date : </label>
-                    <input type="date" />
 
                     <div className={styles.approvedRow}>
                         <div className={styles.approvedFeild}>
-                            <label>Time : </label>
-                            <input type="time" />
+                            <label>Date : </label>
+                            <input type="date" />
                         </div>
-                        {/* <div className={styles.approvedFeild}>
-                            <label>Actual OUT : </label>
-                            <input type="time" />
-                        </div> */}
+                        <div className={styles.approvedFeild}>
+                            <label>Time : </label>
+                            <input type="text" />
+                        </div>
 
                     </div>
+                    <div className={styles.approvedRow}>
+                        <div className={styles.approvedFeild}>
+                            <label>Given By : </label>
+                            <input type="date" />
+                        </div>
+                        <div className={styles.approvedFeild}>
+                            <label>Given To : </label>
+                            <input type="text" />
+                        </div>
 
-                    <label>Given By : </label>
-                    <input type="text" placeholder="" />
-                    <label>Given To : </label>
-                    <input type="text" placeholder="" />
+                    </div>
+                    
+
 
                     <div className={styles.approvedRow}>
                         <div className={styles.approvedFeild}>
                             <label>Last Date to Submit : </label>
-                            <div style={{ display: "flex", gap: "10px" }}>
-                                <input type="text" placeholder="PH / FH / SH" />
-                                {/* <input type="text" placeholder="PH / FH / SH" /> */}
-                            </div>
+                            <input type="date" />
                         </div>
-
+                        <div className={styles.approvedFeild}>
+                            <label>Subject : </label>
+                            <input type="text" />
+                        </div>
                     </div>
 
-
-                    {/* <div className={styles.approvedRow}>
-                        <div className={styles.approvedFeild}>
-                            <label>Request IN : </label>
-                            <input type="time" />
-                        </div>
-                        <div className={styles.approvedFeild}>
-                            <label>Request OUT : </label>
-                            <input type="time" />
-                        </div>
-                    </div> */}
-
-                    <label>Subject : </label>
-                    <input type="text" />
+                    
 
                     <label>Description : </label>
                     <textarea rows="2" />

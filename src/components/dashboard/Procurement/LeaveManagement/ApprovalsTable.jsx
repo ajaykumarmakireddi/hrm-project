@@ -92,11 +92,12 @@ export default function ApprovalsTable({navigate}) {
                 </a> */}
                   {row.email}
                 </td>
-                <td>
+                <td className='table-view-btn'>
                   <ApprovalsTray
                     row={row}
                     selectedRow={selectedRow}
                     onSelectRow={setSelectedRow}
+                    
                   />
                 </td>
               </tr>
