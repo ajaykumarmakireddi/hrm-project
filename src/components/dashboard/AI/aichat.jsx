@@ -35,7 +35,8 @@ const TextRenderer = ({ text, theme }) => {
             key={index}
             style={{
               margin: "15px 0 8px 0",
-              fontSize: "1.4em",
+              fontSize: "1.1em",
+              fontWeight : "600",
               color: theme === "light" ? "#333" : "#fff",
             }}
           >
@@ -49,7 +50,7 @@ const TextRenderer = ({ text, theme }) => {
             key={index}
             style={{
               margin: "10px 0 5px 0",
-              fontSize: "1.2em",
+              fontSize: "1.0em",
               color: theme === "light" ? "#007bff" : "#8ab4f8",
             }}
           >
@@ -63,7 +64,8 @@ const TextRenderer = ({ text, theme }) => {
             key={index}
             style={{
               marginLeft: "20px",
-              fontSize: "0.95em",
+              fontSize: "0.8em",
+              fontWeight: "500", 
               listStyleType: "disc",
             }}
           >
@@ -97,7 +99,7 @@ const TextRenderer = ({ text, theme }) => {
       return (
         <p
           key={index}
-          style={{ margin: "5px 0", fontSize: "0.95em" }}
+          style={{ margin: "5px 0", fontSize: "0.8em", fontWeight: "500" }}
           dangerouslySetInnerHTML={{ __html: formattedLine }}
         />
       );
@@ -116,21 +118,19 @@ const DataTableRenderer = ({ data, title, description, theme, type }) => {
       style={{
         marginTop: "10px",
         padding: "15px",
-        border: `1px solid ${isLight ? "#ccc" : "#444"}`,
-        borderRadius: "8px",
-        backgroundColor: isLight ? "#f5f5f5" : "#1f1f1f",
       }}
     >
       <h4
         style={{
           margin: "0 0 5px 0",
           fontSize: "1.1em",
+          fontWeight: 600,
           color: isLight ? "#333" : "#fff",
         }}
       >
         {title}
       </h4>
-      <p style={{ margin: "0 0 10px 0", fontSize: "0.85em", opacity: 0.7 }}>
+      <p style={{ margin: "0 0 10px 0", fontSize: "0.85em", opacity: 0.7 , fontWeight: 500}}>
         {description}
       </p>
       {type !== "table" && type !== "text" && (
@@ -146,7 +146,7 @@ const DataTableRenderer = ({ data, title, description, theme, type }) => {
         </p>
       )}
       <table
-        style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.9em" }}
+       className="square-table"
       >
         <thead>
           <tr style={{ backgroundColor: isLight ? "#e9ecef" : "#2a2a2a" }}>
@@ -211,7 +211,7 @@ const DataChartRenderer = ({ data, title, description, theme }) => {
             display: "flex",
             alignItems: "flex-end",
             height: "150px",
-            gap: "10px",
+            gap: "20px",
             paddingBottom: "5px",
             borderBottom: `1px solid ${isLight ? "#333" : "#fff"}`,
           }}
@@ -224,6 +224,7 @@ const DataChartRenderer = ({ data, title, description, theme }) => {
                 flexDirection: "column",
                 alignItems: "center",
                 width: "30px",
+                position : "relative"
               }}
             >
               <div
@@ -238,9 +239,11 @@ const DataChartRenderer = ({ data, title, description, theme }) => {
               />
               <span
                 style={{
-                  fontSize: "0.75em",
+                  fontSize: "0.70em",
                   marginTop: "4px",
                   textAlign: "center",
+                  position : "absolute",
+                  bottom: -40
                 }}
               >
                 {item.label}
@@ -250,7 +253,7 @@ const DataChartRenderer = ({ data, title, description, theme }) => {
         </div>
         <p
           style={{
-            margin: "10px 0 0 0",
+            margin: "35px 0 0 0",
             fontSize: "0.75em",
             textAlign: "right",
             opacity: 0.9,
@@ -354,7 +357,7 @@ const DataChartRenderer = ({ data, title, description, theme }) => {
           padding: "10px 0",
         }}
       >
-        <svg viewBox="0 0 100 100" width="100px" height="100px">
+        <svg viewBox="0 0 100 100" width="200px" height="200px">
           {chartData.map((item, i) =>
             getPath(item.value, total, colors[i % colors.length], i)
           )}
@@ -409,22 +412,20 @@ const DataChartRenderer = ({ data, title, description, theme }) => {
     <div
       style={{
         marginTop: "10px",
-        padding: "15px",
-        border: `1px solid ${isLight ? "#ccc" : "#444"}`,
-        borderRadius: "8px",
-        backgroundColor: isLight ? "#f5f5f5" : "#1f1f1f",
+        padding: "15px"
       }}
     >
       <h4
         style={{
           margin: "0 0 5px 0",
-          fontSize: "1.1em",
+          fontSize: "1.2em",
           color: isLight ? "#333" : "#fff",
+          fontWeight: "600"
         }}
       >
         {title}
       </h4>
-      <p style={{ margin: "0 0 10px 0", fontSize: "0.85em", opacity: 0.7 }}>
+      <p style={{ margin: "0 0 10px 0", fontSize: "0.85em", opacity: 0.7, fontWeight: "500" }}>
         {description}
       </p>
       {renderChart()}
@@ -448,25 +449,24 @@ const GanttChartRenderer = ({ data, title, description, theme }) => {
       style={{
         marginTop: "10px",
         padding: "15px",
-        border: `1px solid ${isLight ? "#ccc" : "#444"}`,
-        borderRadius: "8px",
-        backgroundColor: isLight ? "#f5f5f5" : "#1f1f1f",
+        
       }}
     >
       <h4
         style={{
           margin: "0 0 5px 0",
-          fontSize: "1.1em",
+          fontSize: "1.2em",
           color: isLight ? "#333" : "#fff",
+          fontWeight: 600
         }}
       >
         {title}
       </h4>
-      <p style={{ margin: "0 0 10px 0", fontSize: "0.85em", opacity: 0.7 }}>
+      <p style={{ margin: "0 0 10px 0", fontSize: "0.85em", opacity: 0.7, fontWeight: "500" }}>
         {description}
       </p>
       <div style={{ padding: "10px 0", overflowX: "auto" }}>
-        <h5 style={{ fontSize: "0.9em", color: "#007bff" }}>
+        <h5 style={{ fontSize: "0.9em", color: "var(--primmary-color)" }}>
           {formatChartType("gantt")} Visualizer:
         </h5>
         {tasks.map((task, i) => (
@@ -484,7 +484,7 @@ const GanttChartRenderer = ({ data, title, description, theme }) => {
             </span>
             <div
               style={{
-                backgroundColor: "#007bff",
+                backgroundColor: "var(--primmary-color)",
                 color: "white",
                 padding: "4px 8px",
                 borderRadius: "3px",
@@ -619,21 +619,20 @@ const HeatmapRenderer = ({ data, title, description, theme }) => {
       style={{
         marginTop: "10px",
         padding: "15px",
-        border: `1px solid ${isLight ? "#ccc" : "#444"}`,
-        borderRadius: "8px",
-        backgroundColor: isLight ? "#f5f5f5" : "#1f1f1f",
+        
       }}
     >
       <h4
         style={{
           margin: "0 0 5px 0",
-          fontSize: "1.1em",
+          fontSize: "1.2em",
           color: isLight ? "#333" : "#fff",
+          fontWeight: 600,
         }}
       >
         {title}
       </h4>
-      <p style={{ margin: "0 0 10px 0", fontSize: "0.85em", opacity: 0.7 }}>
+      <p style={{ margin: "0 0 10px 0", fontSize: "0.85em", opacity: 0.7 , fontWeight: 600}}>
         {description}
       </p>
 
@@ -1019,21 +1018,20 @@ const StackedBarRenderer = ({ data, title, description, theme }) => {
       style={{
         marginTop: "10px",
         padding: "15px",
-        border: `1px solid ${isLight ? "#ccc" : "#444"}`,
-        borderRadius: "8px",
-        backgroundColor: isLight ? "#f5f5f5" : "#1f1f1f",
+        
       }}
     >
       <h4
         style={{
           margin: "0 0 5px 0",
-          fontSize: "1.1em",
+          fontSize: "1.2em",
           color: isLight ? "#333" : "#fff",
+          fontWeight: 600
         }}
       >
         {title}
       </h4>
-      <p style={{ margin: "0 0 10px 0", fontSize: "0.85em", opacity: 0.7 }}>
+      <p style={{ margin: "0 0 10px 0", fontSize: "0.85em", opacity: 0.7, fontWeight: 500 }}>
         {description}
       </p>
 
@@ -1205,6 +1203,7 @@ export default function KernnAIChat() {
           justifyContent: "space-between",
           padding: "12px 16px",
           borderBottom: theme === "light" ? "1px solid #ddd" : "1px solid #333",
+          backgroundColor : theme === "light" ? "#ffff" : "#252525ff",
         }}
       >
         {/* LEFT SIDE: BACK BUTTON, LOGO, AND TITLE */}
@@ -1287,17 +1286,19 @@ export default function KernnAIChat() {
           flex: 1,
           padding: "24px",
           overflowY: "auto",
+          paddingBottom: "150px"
         }}
       >
         {messages.length === 0 && (
           <div style={{ fontSize: "22px", fontWeight: "500", opacity: 0.7 }}>
-            Hello Employee Name, what can I do for you?
+            Hello Karthik Makkena, what can I do for you?
           </div>
         )}
 
         {messages.map((msg, i) => (
           <div
             key={i}
+            className="messageAnimation"
             style={{
               display: "flex",
               justifyContent: msg.sender === "user" ? "flex-end" : "flex-start",
@@ -1312,15 +1313,17 @@ export default function KernnAIChat() {
                 backgroundColor:
                   msg.sender === "user"
                     ? theme === "light"
-                      ? "#d1e7ff"
-                      : "#1e3a5f"
+                      ? "var(--primmary-color)"
+                      : "var(--primmary-light)"
                     : theme === "light"
-                    ? "#f0f0f0"
-                    : "#2a2a2a",
+                    ? "var(--primmary-light)"
+                    : "#291818ff",
+
+                  
               }}
             >
               {/* FIXED: Display user message text directly */}
-              {msg.sender === "user" && <p style={{ margin: 0 }}>{msg.text}</p>}
+              {msg.sender === "user" && <p style={{ margin: 0, color : "white", fontWeight: 500 }}>{msg.text}</p>}
 
               {/* AI CONTENT RENDERING LOGIC */}
               {msg.sender === "ai" && (
@@ -1417,15 +1420,20 @@ export default function KernnAIChat() {
             justifyContent: "center",
             padding: "0 16px",
             marginBottom: "12px",
+            backgroundColor : "transparent",
+            position : "absolute",
+            bottom : "80px"
+            
           }}
         >
           <div
             style={{
               width: "70%",
-              maxWidth: "900px",
+              maxWidth: "90%",
               display: "flex",
               flexWrap: "wrap",
               gap: "8px",
+
             }}
           >
             {suggestions.map((prompt, index) => (
@@ -1437,8 +1445,9 @@ export default function KernnAIChat() {
                   borderRadius: "20px",
                   border:
                     theme === "light" ? "1px solid #ccc" : "1px solid #555",
-                  backgroundColor: theme === "light" ? "#f0f0f0" : "#2a2a2a",
+                  backgroundColor: theme === "light" ? "#f0f0f06f" : "#2a2a2a5d",
                   color: theme === "light" ? "#333" : "#ddd",
+                  backdropFilter: "blur(8px)",
                   cursor: "pointer",
                   fontSize: "14px",
                   transition: "background-color 0.2s",
@@ -1461,6 +1470,7 @@ export default function KernnAIChat() {
           borderTop: theme === "light" ? "1px solid #ddd" : "1px solid #333",
           display: "flex",
           justifyContent: "center",
+          backgroundColor : theme === "light" ? "#ffff" : "#252525ff",
         }}
       >
         <div
