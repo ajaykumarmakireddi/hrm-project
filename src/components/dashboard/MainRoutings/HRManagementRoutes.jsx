@@ -4,14 +4,26 @@ import { Route, Routes } from "react-router-dom";
 // Fallback loaders
 import NavbarSkeleton from "@/SkeletonLoaders/NavbarSkeleton";
 import AnalyticsPageSkeleton from "@/SkeletonLoaders/AnalyticsPageSkeleton";
+import PayrollDashboard from "../HRManagement/Payroll/PayrollDashboard";
+import PayrollRouting from "../HRManagement/Payroll/PayrollRouting";
 
 // Lazy-loaded route components
 const HRAnalytics = lazy(() => import("../DashboardCharts/pages/HRAnalytics"));
-const AttendanceForm = lazy(() => import("../Procurement/AttendanceManagement/AttendanceForm"));
-const LeaveManagementRoute = lazy(() => import("../Procurement/LeaveManagement/LeaveManagementRoute"));
-const TaskRouting = lazy(() => import("../Procurement/TaskManagement/TaskRouting"));
-const ApplicationRouting = lazy(() => import("../Procurement/ApplicationManagement/ApplicationRouting"));
-const EmployeesRoute = lazy(() => import("../Procurement/Employees/EmployeesRoute"));
+const AttendanceForm = lazy(() =>
+  import("../Procurement/AttendanceManagement/AttendanceForm")
+);
+const LeaveManagementRoute = lazy(() =>
+  import("../Procurement/LeaveManagement/LeaveManagementRoute")
+);
+const TaskRouting = lazy(() =>
+  import("../Procurement/TaskManagement/TaskRouting")
+);
+const ApplicationRouting = lazy(() =>
+  import("../Procurement/ApplicationManagement/ApplicationRouting")
+);
+const EmployeesRoute = lazy(() =>
+  import("../Procurement/Employees/EmployeesRoute")
+);
 const Routing = lazy(() => import("../Production/Shifts/Routing"));
 
 function HRManagementRoutes({ department, role }) {
@@ -74,7 +86,7 @@ function HRManagementRoutes({ department, role }) {
             </Suspense>
           }
         />
-        <Route path="/payroll/*" element={<p>Payroll</p>} />
+        <Route path="/payroll/*" element={<PayrollRouting />} />
       </Routes>
     </Suspense>
   );
