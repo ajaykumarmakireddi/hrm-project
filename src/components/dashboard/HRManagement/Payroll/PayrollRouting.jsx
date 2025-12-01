@@ -3,6 +3,7 @@ import SquareTableSkeleton from "@/SkeletonLoaders/SquareTableSkeleton";
 import React, { Suspense } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import PayrollHome from "./PayrollHome";
+import PayrollReimbursements from "./PayrollReimbursements";
 
 function PayrollRouting() {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ function PayrollRouting() {
           path="/reimbursement"
           element={
             <Suspense fallback={<SquareTableSkeleton />}>
-              <p>Reimbursement</p>
+              <PayrollReimbursements navigate={navigate}/>
             </Suspense>
           }
         />

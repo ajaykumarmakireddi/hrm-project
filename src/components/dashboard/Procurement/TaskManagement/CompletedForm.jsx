@@ -7,7 +7,7 @@ function CompletedForm({ btnClass, btnName }) {
     return (
         <>
             {/* check this comment ajay */}
-            <CentralPopupBox btnClass={"table-approved-btn"} btnName={btnName} title={"Completed Tasks"} >
+            <CentralPopupBox btnClass={btnClass} btnName={btnName} title={"Completed Tasks"} >
                 {<form className={styles.approvedForm}>
 
 
