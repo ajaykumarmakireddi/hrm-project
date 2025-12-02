@@ -1,0 +1,295 @@
+/* PayrollReimbursements.module.css */
+.page {
+    padding: 18px;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    background: #f7fafc;
+    color: #0f172a;
+}
+
+.headerRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.headerActions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.btn {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    background: #fff;
+    cursor: pointer;
+}
+
+.btnPrimary {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    background: #0ea5a4;
+    color: white;
+    cursor: pointer;
+}
+
+.filters {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    align-items: center;
+}
+
+.filters select,
+.filters input {
+    padding: 6px 8px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.summaryStrip {
+    display: flex;
+    gap: 18px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 2px rgba(2, 6, 23, 0.06);
+}
+
+.tableWrap {
+    background: #fff;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(2, 6, 23, 0.04);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 10px;
+    border-bottom: 1px solid #eef2f7;
+    text-align: left;
+    font-size: 13px;
+}
+
+.statusTag {
+    padding: 6px 8px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.status_pending {
+    background: #fff7ed;
+    color: #92400e;
+    border: 1px solid rgba(146, 64, 14, 0.08);
+}
+
+.status_approved {
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid rgba(6, 95, 70, 0.08);
+}
+
+.status_rejected {
+    background: #fff1f2;
+    color: #7f1d1d;
+    border: 1px solid rgba(127, 29, 29, 0.06);
+}
+
+.smallBtn {
+    background: none;
+    border: none;
+    color: #0ea5a4;
+    cursor: pointer;
+    padding: 6px;
+    font-weight: 700;
+}
+
+.pager {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.modalBackdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 23, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal {
+    width: 520px;
+    max-width: 94%;
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.18);
+}
+
+.label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.input {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    margin-top: 6px;
+}
+
+.attachList {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.attachItem {
+    display: flex;
+    justify-content: space-between;
+    background: #f8fafc;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.removeBtn {
+    background: none;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+}
+
+.modalActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.bulkUpload {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.bulkPreview {
+    margin-top: 10px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(2, 6, 23, 0.04);
+}
+
+.previewList {
+    max-height: 220px;
+    overflow: auto;
+}
+
+.previewRow {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid #eef2f7;
+}
+
+.previewErr {
+    color: #7f1d1d;
+    font-weight: 700;
+}
+
+.previewOk {
+    color: #065f46;
+    font-weight: 700;
+}
+
+.drawerBackdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 23, 0.35);
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1800;
+}
+
+.drawer {
+    width: 420px;
+    max-width: 90%;
+    background: #fff;
+    padding: 16px;
+    height: 100%;
+    box-shadow: -10px 0 30px rgba(2, 6, 23, 0.18);
+    overflow: auto;
+}
+
+.drawerHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.drawerBody {
+    font-size: 14px;
+    color: #0f172a;
+}
+
+.notes {
+    background: #f8fafc;
+    padding: 8px;
+    border-radius: 6px;
+    margin-top: 6px;
+}
+
+.toast {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: #111827;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    z-index: 3000;
+}
+
+.toastSuccess {
+    background: #065f46;
+}
+
+.toastError {
+    background: #7f1d1d;
+}
+
+/* responsive */
+@media (max-width:900px) {
+    .filters {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .summaryStrip {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .drawer {
+        width: 100%;
+    }
+}

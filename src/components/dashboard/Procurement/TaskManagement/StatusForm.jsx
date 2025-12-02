@@ -42,7 +42,7 @@ function StatusForm({ btnClass, btnName }) {
                         </div>
                         <div className={styles.approvedFeild}>
                             <label>Subject : </label>
-                            <input type="text" />
+                            <input type="text   " />
                         </div>
                     </div>
 
