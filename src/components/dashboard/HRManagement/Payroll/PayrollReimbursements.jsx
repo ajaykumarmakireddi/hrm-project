@@ -64,6 +64,7 @@ function NewClaimForm({ categories, onSubmit, onClose }) {
     }
 
     return (
+
         <div className={styles.modalBackdrop}>
             <form className={styles.modal} onSubmit={submit}>
                 <h3>Submit Reimbursement Claim</h3>
@@ -212,6 +213,7 @@ function BulkUpload({ onUpload, categories }) {
 function ClaimDetails({ claim, onClose, onApprove, onReject }) {
     if (!claim) return null;
     return (
+
         <div className={styles.drawerBackdrop} onClick={onClose}>
             <div className={styles.drawer} onClick={(e) => e.stopPropagation()}>
                 <div className={styles.drawerHeader}>
@@ -246,7 +248,7 @@ function ClaimDetails({ claim, onClose, onApprove, onReject }) {
 }
 
 /* ---------- Main page ---------- */
-export default function PayrollReimbursements({navigate}) {
+export default function PayrollReimbursements({ navigate }) {
     const [claims, setClaims] = useState([]);
     const [page, setPage] = useState(1);
     const [pageSize] = useState(8);
@@ -489,3 +491,5 @@ export default function PayrollReimbursements({navigate}) {
         </>
     );
 }
+
+
