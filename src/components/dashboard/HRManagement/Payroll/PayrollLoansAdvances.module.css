@@ -1,106 +1,123 @@
 /* PayrollLoansAdvances.module.css */
+
+/* Base page setup */
 .page {
-    padding: 18px;
-    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-    background: #f7fafc;
+    padding: clamp(12px, 2vw, 22px);
+    background: white;
     color: #0f172a;
+    padding-top: 0;
 }
 
+/* Header */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .headerActions {
     display: flex;
     gap: 8px;
-    align-items: center;
+    flex-wrap: wrap;
 }
 
-.btn {
-    padding: 8px 10px;
-    border-radius: 8px;
-    border: 1px solid #cbd5e1;
-    background: #fff;
-    cursor: pointer;
-    font-weight: 600;
-}
-
+/* Buttons */
+.btn,
 .btnPrimary {
     padding: 8px 12px;
     border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.btn {
+    border: 1px solid #cbd5e1;
+    background: #fff;
+}
+
+.btnPrimary {
     border: none;
     background: #0ea5a4;
     color: #fff;
-    cursor: pointer;
     font-weight: 700;
 }
 
+/* Summary cards */
 .summaryRow {
     display: flex;
-    gap: 12px;
-    margin-bottom: 14px;
+    gap: 14px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
 .summaryCard {
     background: #fff;
-    padding: 12px;
+    padding: 14px;
     border-radius: 10px;
-    width: 220px;
-    box-shadow: 0 2px 8px rgba(2, 6, 23, 0.04);
+    width: clamp(180px, 48%, 240px);
+    flex: 1;
+    min-width: 160px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.366);
 }
 
 .cardTitle {
-    font-size: 12px;
+    font-size: 13px;
     color: #64748b;
     margin-bottom: 6px;
 }
 
 .cardValue {
-    font-size: 20px;
+    font-size: clamp(18px, 2.5vw, 22px);
     font-weight: 800;
 }
 
 .cardSub {
-    font-size: 12px;
+    font-size: 13px;
     color: #94a3b8;
 }
 
+/* Grid layout */
 .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 2fr));
+    gap: 20px;
 }
 
-.card {
+.card,
+.cardFull {
     background: #fff;
-    padding: 12px;
-    border-radius: 8px;
-    box-shadow: 0 1px 4px rgba(2, 6, 23, 0.04);
+    padding: clamp(12px, 1.8vw, 18px);
+    border-radius: 10px;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.366);
 }
 
 .cardFull {
     grid-column: 1 / -1;
-    background: #fff;
-    padding: 12px;
-    border-radius: 8px;
-    box-shadow: 0 1px 4px rgba(2, 6, 23, 0.04);
 }
 
+
+.headerh3{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Table */
 .table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 6px;
+    margin-top: 10px;
 }
 
 .table th,
 .table td {
-    padding: 10px;
+    padding: 12px;
     border-bottom: 1px solid #eef2f7;
     text-align: left;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .smallBtn {
@@ -112,8 +129,9 @@
     font-weight: 700;
 }
 
+/* Status badges */
 .status {
-    padding: 6px 8px;
+    padding: 6px 10px;
     border-radius: 999px;
     font-weight: 700;
     font-size: 12px;
@@ -137,7 +155,7 @@
     border: 1px solid rgba(127, 29, 29, 0.06);
 }
 
-/* modal & drawer */
+/* Modal & Drawer */
 .modalBackdrop,
 .drawerBackdrop {
     position: fixed;
@@ -150,29 +168,27 @@
 }
 
 .modalCard {
-    width: 520px;
-    max-width: 94%;
-    background: #fff;
-    padding: 16px;
-    border-radius: 10px;
+    width: min(520px, 94%);
+    background: var(--primmary-background);
+    padding: clamp(14px, 2vw, 20px);
+    border-radius: 12px;
     box-shadow: 0 10px 30px rgba(2, 6, 23, 0.18);
 }
 
 .modalActions {
     display: flex;
     justify-content: flex-end;
-    gap: 8px;
-    margin-top: 12px;
+    gap: 10px;
+    margin-top: 14px;
 }
 
 .drawer {
-    width: 760px;
-    max-width: 96%;
-    background: #fff;
-    padding: 12px;
-    border-radius: 8px;
+    width: min(760px, 96%);
+    background: var(--primmary-background);
+    padding: clamp(12px, 2vw, 20px);
+    border-radius: 10px;
     box-shadow: -10px 0 30px rgba(2, 6, 23, 0.12);
-    max-height: 80vh;
+    max-height: 82vh;
     overflow: auto;
 }
 
@@ -180,7 +196,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .drawerBody {
@@ -188,34 +204,40 @@
     color: #0f172a;
 }
 
+/* Form fields */
 .label {
-    display: block;
+    width: 90%;
     margin-bottom: 8px;
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .input {
-    display: block;
     width: 100%;
-    padding: 8px;
+    padding: 9px;
     border-radius: 8px;
+    background-color: white;
     border: 1px solid #e2e8f0;
-    margin-top: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.204);
+    margin-top: 4px;
+    font-size: 14px;
 }
 
+/* Policy list */
 .policyList {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     flex-wrap: wrap;
-    margin-top: 8px;
+    margin-top: 10px;
 }
 
 .policyCard {
-    background: #fff;
+    background: var(--primmary-background);
     border: 1px solid #eef2f7;
-    padding: 10px;
-    border-radius: 8px;
-    width: 260px;
+    padding: 12px;
+    border-radius: 10px;
+    width: clamp(240px, 48%, 280px);
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.248);
 }
 
 .policyTitle {
@@ -224,33 +246,35 @@
 }
 
 .policyActions {
-    margin-top: 8px;
+    margin-top: 10px;
 }
 
+/* Attachments */
 .attachList {
-    margin-top: 8px;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
 }
 
 .attachItem {
     display: flex;
     justify-content: space-between;
     background: #f8fafc;
-    padding: 8px;
+    padding: 10px;
     border-radius: 8px;
 }
 
+/* Errors */
 .fieldError {
     color: #7f1d1d;
     font-size: 12px;
     margin-top: 6px;
 }
 
-/* preview & ledger */
+/* Preview & Ledger */
 .iconClose {
-    background: transparent;
+    background: none;
     border: none;
     font-size: 18px;
     cursor: pointer;
@@ -266,17 +290,17 @@
     margin-top: 6px;
 }
 
-/* bulk/upload */
+/* Bulk Upload */
 .bulkUpload {
     margin-top: 12px;
 }
 
 .bulkPreview {
     background: #fff;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 12px;
+    border-radius: 10px;
     box-shadow: 0 1px 2px rgba(2, 6, 23, 0.04);
-    margin-top: 10px;
+    margin-top: 12px;
 }
 
 .previewList {
@@ -291,16 +315,17 @@
     border-bottom: 1px solid #eef2f7;
 }
 
-/* toast */
+/* Toast */
 .toast {
     position: fixed;
     right: 20px;
     bottom: 20px;
     background: #111827;
     color: white;
-    padding: 8px 12px;
-    border-radius: 8px;
+    padding: 10px 14px;
+    border-radius: 10px;
     z-index: 3000;
+    font-size: 14px;
 }
 
 .toastSuccess {
@@ -311,19 +336,45 @@
     background: #7f1d1d;
 }
 
-/* responsive */
-@media (max-width: 980px) {
-    .grid {
-        grid-template-columns: 1fr;
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .summaryCard {
+        width: 100%;
+    }
+
+    .table th,
+    .table td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .policyCard {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn,
+    .btnPrimary {
+        padding: 6px 10px;
+        font-size: 13px;
     }
 
     .summaryRow {
-        flex-direction: column;
         gap: 10px;
+    }
+
+    .cardValue {
+        font-size: 18px;
     }
 
     .drawer,
     .modalCard {
-        width: 96%;
+        padding: 12px;
     }
 }
