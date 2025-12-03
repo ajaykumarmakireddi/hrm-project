@@ -4,7 +4,9 @@ import React, { Suspense } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import PayrollHome from "./PayrollHome";
 import PayrollReimbursements from "./PayrollReimbursements";
+import BonusModule from "./BonusModule";
 import PayrollLoansAdvances from "./PayrollLoansAdvances";
+
 
 function PayrollRouting() {
   const navigate = useNavigate();
@@ -40,7 +42,7 @@ function PayrollRouting() {
           path="/bonus-pay"
           element={
             <Suspense fallback={<SquareTableSkeleton />}>
-              <p>Bonus Pay</p>
+              <BonusModule navigate={navigate} />
             </Suspense>
           }
         />

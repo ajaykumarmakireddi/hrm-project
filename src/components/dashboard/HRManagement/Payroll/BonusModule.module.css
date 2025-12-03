@@ -1,0 +1,319 @@
+/* BonusModule.module.css */
+
+/* Base Reset */
+.container {
+  padding: 18px;
+  padding-top: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  color: #111827;
+  background: white;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+.title {
+  margin: 0 0 12px 0;
+  font-size: 20px;
+  color: #0f172a;
+}
+
+/* Header Flex */
+.headerRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+/* Cycle Selector */
+.cycleSelector label {
+  display: block;
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 6px;
+}
+.cycleSelector select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  width: 30%;
+  min-width: 200px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.tabBtn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 600;
+  color: #374151;
+  white-space: nowrap;
+}
+.tabActive {
+  background: #fff;
+  border-color: #e6eefc;
+  box-shadow: 0 1px 3px rgba(2, 6, 23, 0.06);
+  color: #0b5fff;
+}
+.tabContent {
+  margin-top: 12px;
+}
+
+/* Alerts */
+.msg {
+  padding: 8px 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.msg.success {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #bbf7d0;
+}
+.msg.error {
+  background: #fff1f2;
+  color: #7f1d1d;
+  border: 1px solid #fecaca;
+}
+.msg.warn {
+  background: #fff7ed;
+  color: #92400e;
+  border: 1px solid #ffedd5;
+}
+.msg.info {
+  background: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #dbeafe;
+}
+
+/* Grid Layouts */
+.cyclesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.cycleList,
+.cycleForm {
+  background: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.378);
+  margin-bottom: 20px;
+}
+.headerh3{
+  font-size: 23px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+.cyclesh4{
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Sections */
+.sectionGrid {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.sectionGrid > div {
+  flex: 1 1 300px;
+}
+
+.panelCard {
+  background: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(2, 6, 23, 0.04);
+  min-width: 250px;
+  width: 100%;
+}
+
+/* Forms */
+.formRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.formRow label {
+  min-width: 120px;
+  font-size: 13px;
+  color: #374151;
+}
+.formRow input,
+.formRow select,
+.formRow textarea {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+  width: 100%;
+}
+
+/* Buttons */
+.primaryBtn {
+  background: #0b5fff;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(11, 95, 255, 0.08);
+}
+.primaryBtn:hover {
+  opacity: 0.95;
+}
+
+/* Assignment Controls */
+.assignControls {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  margin-bottom: 12px;
+  background: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(2, 6, 23, 0.04);
+  flex-wrap: wrap;
+}
+.assignControls select,
+.assignControls input {
+  padding: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  width: 100%;
+}
+.assignControls button {
+  height: 40px;
+  width: 100%;
+}
+
+/* Tables */
+.tableWrap {
+  background: #fff;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(2, 6, 23, 0.04);
+  overflow-x: auto;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.table th,
+.table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #f3f4f6;
+  text-align: left;
+}
+.table thead tr {
+  background: #f8fafc;
+}
+.table tbody tr:hover {
+  background: #fbfdff;
+}
+
+/* Inline Inputs */
+.table td input {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 13px;
+}
+.smallText {
+  color: #6b7280;
+  font-size: 12px;
+}
+
+/* Summary */
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dashed #f3f4f6;
+}
+
+.actionRow {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+/* RESPONSIVE BREAKPOINTS */
+
+/* Tablets & below (900px) */
+@media (max-width: 900px) {
+  .cyclesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .cycleList,
+  .cycleForm {
+    width: 100%;
+  }
+
+  .assignControls button {
+    width: 100%;
+  }
+}
+
+/* Mobile Large (600px) */
+@media (max-width: 600px) {
+  .formRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .formRow label {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .tabs {
+    gap: 8px;
+  }
+
+  .tabBtn {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+}
+
+/* Mobile Small (480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 12px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .panelCard {
+    padding: 10px;
+  }
+
+  .table th,
+  .table td {
+    padding: 6px;
+    font-size: 13px;
+  }
+}
