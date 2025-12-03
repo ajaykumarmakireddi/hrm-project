@@ -30,6 +30,12 @@ function PayrollHome({ navigate }) {
           >
             Payroll Engine
           </button>
+          <button className={`homebtn`} onClick={() => navigate("/payroll/salary-assignment")}>
+            Salary Assignment
+          </button>
+          <button className={`homebtn`} onClick={() => navigate("/payroll/salary-structure")}>
+            Salary Structure
+          </button>
         </div>
       </div>
 
