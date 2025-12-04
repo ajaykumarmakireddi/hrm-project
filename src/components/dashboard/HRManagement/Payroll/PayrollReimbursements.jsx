@@ -68,8 +68,8 @@ function NewClaimForm({ categories, onSubmit, onClose }) {
 
   return (
     <div className={styles.modalBackdrop}>
-      <form className={styles.modal} onSubmit={submit}>
-        <h3>Submit Reimbursement Claim</h3>
+      <form className={styles.modalCard} onSubmit={submit}>
+        {/* <h3>Submit Reimbursement Claim</h3> */}
 
         <label className={styles.label}>
           Employee name
@@ -79,7 +79,7 @@ function NewClaimForm({ categories, onSubmit, onClose }) {
             onChange={(e) => setForm({ ...form, employeeName: e.target.value })}
           />
           {errors.employeeName && (
-            <div className={styles.error}>{errors.employeeName}</div>
+            <div className={styles.fieldError}>{errors.employeeName}</div>
           )}
         </label>
 
@@ -97,7 +97,7 @@ function NewClaimForm({ categories, onSubmit, onClose }) {
             ))}
           </select>
           {errors.category && (
-            <div className={styles.error}>{errors.category}</div>
+            <div className={styles.fieldError}>{errors.category}</div>
           )}
         </label>
 
@@ -109,7 +109,7 @@ function NewClaimForm({ categories, onSubmit, onClose }) {
             value={form.amount}
             onChange={(e) => setForm({ ...form, amount: e.target.value })}
           />
-          {errors.amount && <div className={styles.error}>{errors.amount}</div>}
+          {errors.amount && <div className={styles.FieldError}>{errors.amount}</div>}
         </label>
 
         <label className={styles.label}>
@@ -151,11 +151,11 @@ function NewClaimForm({ categories, onSubmit, onClose }) {
           </div>
         )}
 
-        <div className={styles.modalActions}>
-          <button type="button" className={styles.btn} onClick={onClose}>
+        <div className={'d-flex justify-content-center mt-2'}>
+          <button type="button" className={'cancelbtn'} onClick={onClose}>
             Cancel
           </button>
-          <button type="submit" className={styles.btnPrimary}>
+          <button type="submit" className={'submitbtn'}>
             Submit Claim
           </button>
         </div>

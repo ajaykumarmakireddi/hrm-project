@@ -130,27 +130,31 @@ PayrollReimbursements.module.css
     z-index: 2000;
 }
 
-.modal {
-    width: 520px;
+.modalCard {
+    width: min(500px, 90%);
     max-width: 94%;
-    background: #fff;
-    border-radius: 10px;
-    padding: 16px;
+    background: var(--primmary-background);
+    border-radius: 12px;
+    padding: clamp(14px, 2vw, 20px);
     box-shadow: 0 10px 30px rgba(2, 6, 23, 0.18);
 }
 
 .label {
+    width: 90%;
     display: block;
     margin-bottom: 8px;
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .input {
     display: block;
     width: 100%;
-    padding: 8px;
+    padding: 9px;
     border-radius: 8px;
+    background-color: white;
     border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.204);
     margin-top: 6px;
 }
 

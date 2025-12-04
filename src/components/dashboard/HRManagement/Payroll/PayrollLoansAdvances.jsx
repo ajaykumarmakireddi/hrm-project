@@ -56,6 +56,8 @@ function CreateLoanModal({ categories, onClose, onCreate }) {
     await onCreate(form);
   }
   return (
+
+
     <div className={styles.modalBackdrop} onClick={onClose}>
       <form
         className={styles.modalCard}
@@ -146,6 +148,8 @@ function CreateLoanModal({ categories, onClose, onCreate }) {
         </div>
       </form>
     </div>
+
+    
   );
 }
 
