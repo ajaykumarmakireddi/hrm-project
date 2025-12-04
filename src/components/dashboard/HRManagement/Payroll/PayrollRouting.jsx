@@ -7,6 +7,7 @@ import PayrollReimbursements from "./PayrollReimbursements";
 import BonusModule from "./BonusModule";
 import PayrollLoansAdvances from "./PayrollLoansAdvances";
 import PayrollRunEngine from "./PayrollRunEngine";
+import PayrollEmployeeAssignment from "./PayrollEmployeeAssignment";
 
 
 function PayrollRouting() {
@@ -56,6 +57,12 @@ function PayrollRouting() {
             </Suspense>
           }
         />
+        <Route path="/salary-assignment"
+        element={
+          <Suspense fallback={<SquareTableSkeleton />}>
+            <PayrollEmployeeAssignment navigate={navigate} />
+          </Suspense>
+        }/>
       </Routes>
     </>
   );
