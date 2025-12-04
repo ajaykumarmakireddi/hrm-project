@@ -37,7 +37,9 @@
 
 .submitbtn,
 .generatebtn,
-.cancelbtn {
+.cancelbtn,
+.viewbtn,
+.extrabtn {
   min-width: 80px;
   height: 27px;
   padding: 6px 10px;
@@ -51,6 +53,7 @@
   /* box-shadow: 1px 1px 3px #333; */
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
 .generatebtn {
   align-items: center;
   display: flex;
@@ -61,11 +64,18 @@
 .submitbtn {
   background-color: #2fa924;
 }
+
+.viewbtn {
+  background-color: #3d5cc2;
+}
 .cancelbtn {
   background-color: #fd3b3b;
 }
 .generatebtn {
   background-color: #2fa924;
+}
+.extrabtn{
+  background-color: #c5be3f;
 }
 
 .submitbtn:hover {
@@ -74,12 +84,29 @@
 .cancelbtn:hover {
   background-color: #ce3030;
 }
+.viewbtn:hover {
+  background-color: #2a459b;
+}
+.extrabtn:hover{
+background-color: #a6a032;
+}
+
+
 .submitbtn:disabled {
   background-color: #97ef8f;
 }
 
+.viewbtn:disabled {
+  background-color: #5f74b9;
+}
+.extrabtn:disabled{
+ background-color: #ded86d;
+}
+
 .submitbtn:active,
-.cancelbtn:active {
+.cancelbtn:active,
+.viewbtn:active,
+.extrabtn:active {
   transform: scale(0.97);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
@@ -106,10 +133,10 @@
 .table-approved-btn {
   background-color: #2fa924;
   color: white;
-   min-width: 80px;
+  min-width: 80px;
 }
 .table-declined-btn {
   background-color: #cb3333;
   color: white;
-   min-width: 80px;
+  min-width: 80px;
 }

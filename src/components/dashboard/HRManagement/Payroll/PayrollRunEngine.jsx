@@ -1,6 +1,7 @@
 // src/pages/PayrollRunEngine.jsx
 import React, { useEffect, useState } from "react";
 import styles from "./PayrollRunEngine.module.css";
+import StepApprovalWorkflow from "./StepApprovalWorkFlow";
 
 /* ---------------- Mock API (unchanged) ---------------- */
 /* (same mock and api object as your original component) */
@@ -239,7 +240,7 @@ const ValidationRow = ({ v, onFix }) => (
       {v.severity}
     </td>
     <td>
-      <button className={styles.smallBtn} onClick={() => onFix(v)}>
+      <button className={"table-pending-btn"} onClick={() => onFix(v)}>
         Fix
       </button>
     </td>
@@ -449,7 +450,17 @@ export default function PayrollRunEngine({ navigate }) {
 
       <div className={styles.page}>
         <div className={styles.header}>
-          <h2>Payroll Run Engine</h2>
+          <button
+            className={"homebtn"}
+            onClick={() => {
+              setActiveStep(0);
+              setCompleted({});
+              setToast("Ready to start payroll run");
+              setTimeout(() => setToast(null), 1500);
+            }}
+          >
+            Start New Payroll Run
+          </button>
           <div className={styles.headerRight}>
             <label className={styles.filter}>
               Pay Period
@@ -477,18 +488,6 @@ export default function PayrollRunEngine({ navigate }) {
                 <option>USD</option>
               </select>
             </label>
-
-            <button
-              className={styles.btnPrimary}
-              onClick={() => {
-                setActiveStep(0);
-                setCompleted({});
-                setToast("Ready to start payroll run");
-                setTimeout(() => setToast(null), 1500);
-              }}
-            >
-              Start New Payroll Run
-            </button>
           </div>
         </div>
 
@@ -534,58 +533,58 @@ export default function PayrollRunEngine({ navigate }) {
                 <h3 className={styles.headerh3}>{steps[activeStep]}</h3>
                 <div className={styles.panelActions}>
                   {activeStep === 1 && (
-                    <button className={styles.btn} onClick={runValidation}>
+                    <button className={"submitbtn"} onClick={runValidation}>
                       Run Validation
                     </button>
                   )}
                   {activeStep === 2 && (
-                    <button className={styles.btn} onClick={runAttendance}>
+                    <button className={"submitbtn"} onClick={runAttendance}>
                       Process Attendance
                     </button>
                   )}
                   {activeStep === 3 && (
-                    <button className={styles.btn} onClick={runEarnings}>
+                    <button className={"submitbtn"} onClick={runEarnings}>
                       Calculate Earnings
                     </button>
                   )}
                   {activeStep === 4 && (
-                    <button className={styles.btn} onClick={runDeductions}>
+                    <button className={"submitbtn"} onClick={runDeductions}>
                       Calculate Deductions
                     </button>
                   )}
                   {activeStep === 5 && (
-                    <button className={styles.btn} onClick={runTax}>
+                    <button className={"submitbtn"} onClick={runTax}>
                       Run Tax Engine
                     </button>
                   )}
                   {activeStep === 6 && (
-                    <button className={styles.btn} onClick={runEmployerContrib}>
+                    <button
+                      className={"submitbtn"}
+                      onClick={runEmployerContrib}
+                    >
                       Compute Contributions
                     </button>
                   )}
                   {activeStep === 7 && (
                     <button
-                      className={styles.btn}
+                      className={"submitbtn"}
                       onClick={preFinalizeAdjustments}
                     >
                       Apply Adjustments
                     </button>
                   )}
                   {activeStep === 8 && (
-                    <button className={styles.btn} onClick={generateSummary}>
+                    <button className={"submitbtn"} onClick={generateSummary}>
                       Generate Summary
                     </button>
                   )}
                   {activeStep === 9 && (
-                    <button className={styles.btn} onClick={approvalWorkflow}>
+                    <button className={"submitbtn"} onClick={approvalWorkflow}>
                       Configure Approvals
                     </button>
                   )}
                   {activeStep === 10 && (
-                    <button
-                      className={styles.btnPrimary}
-                      onClick={finalizePayroll}
-                    >
+                    <button className={"submitbtn"} onClick={finalizePayroll}>
                       Finalize Payroll
                     </button>
                   )}
@@ -599,14 +598,14 @@ export default function PayrollRunEngine({ navigate }) {
 
                 {activeStep === 0 && (
                   <div>
-                    <p>
+                    <p className={styles.stepPara}>
                       Select pay cycle and run configuration on the left. Use
                       toggles for include/exclude rules, payment date, currency,
                       joiners/exits etc. (UI hooks).
                     </p>
                     <div className={styles.configGrid}>
                       <label>
-                        Payment Date <input type="date" />
+                        Payment Date : <input type="date" />
                       </label>
                       <label>
                         <input type="checkbox" /> Include New Joiners
@@ -623,7 +622,7 @@ export default function PayrollRunEngine({ navigate }) {
 
                 {activeStep === 1 && (
                   <div>
-                    <p>
+                    <p className={styles.stepPara}>
                       Pre-payroll validation checks (missing attendance, salary
                       assignment, bank details, statutory IDs, negative
                       components).
@@ -660,12 +659,12 @@ export default function PayrollRunEngine({ navigate }) {
                         </tbody>
                       </table>
 
-                      <div className={styles.validationBtns}>
-                        <button className={styles.btn} onClick={runValidation}>
+                      <div className={"d-flex justify-content-start mt-3"}>
+                        <button className={"submitbtn"} onClick={runValidation}>
                           Revalidate
                         </button>
                         <button
-                          className={styles.btn}
+                          className={"cancelbtn"}
                           onClick={() => {
                             setToast("Continuing with warnings (simulate)");
                             setTimeout(() => setToast(null), 1200);
@@ -674,7 +673,7 @@ export default function PayrollRunEngine({ navigate }) {
                           Continue with Warnings
                         </button>
                         <button
-                          className={styles.btn}
+                          className={"viewbtn"}
                           onClick={() => {
                             setValidationIssues(
                               validationIssues.filter(
@@ -696,7 +695,7 @@ export default function PayrollRunEngine({ navigate }) {
                   <div>
                     {!attendance && <p>No attendance processed yet.</p>}
                     {attendance && (
-                      <div>
+                      <div className={styles.stepPara}>
                         <div className={styles.attSummary}>
                           <div>
                             Total Working Days: {attendance.totalWorkingDays}
@@ -737,7 +736,9 @@ export default function PayrollRunEngine({ navigate }) {
 
                 {activeStep === 3 && (
                   <div>
-                    <p>Earnings calculation preview (component-wise).</p>
+                    <p className={styles.stepPara}>
+                      Earnings calculation preview (component-wise).
+                    </p>
                     <div className={styles.smallTableWrap}>
                       <table className={"square-table w-100"}>
                         <thead>
@@ -767,7 +768,9 @@ export default function PayrollRunEngine({ navigate }) {
 
                 {activeStep === 4 && (
                   <div>
-                    <p>Deductions preview and adjustments.</p>
+                    <p className={styles.stepPara}>
+                      Deductions preview and adjustments.
+                    </p>
                     <div className={styles.smallTableWrap}>
                       <table className={"square-table w-100"}>
                         <thead>
@@ -797,7 +800,7 @@ export default function PayrollRunEngine({ navigate }) {
 
                 {activeStep === 5 && (
                   <div>
-                    <p>
+                    <p className={styles.stepPara}>
                       Tax calculation engine outputs and taxable income per
                       employee.
                     </p>
@@ -826,12 +829,12 @@ export default function PayrollRunEngine({ navigate }) {
 
                 {activeStep === 6 && (
                   <div>
-                    <p>
+                    <p className={styles.stepPara}>
                       Employer-side contributions summary (PF, ESI, Pension ...)
                     </p>
                     <ul>
                       {employerContrib.map((c, i) => (
-                        <li key={i}>
+                        <li key={i} className={styles.listing}>
                           {c.name}: ₹ {c.value.toLocaleString()}
                         </li>
                       ))}
@@ -841,14 +844,16 @@ export default function PayrollRunEngine({ navigate }) {
 
                 {activeStep === 7 && (
                   <div>
-                    <p>
+                    <p className={styles.stepPara}>
                       Pre-finalization: bulk adjustments, LOP recalculation,
                       reimbursement payouts, ad-hoc adjustments.
                     </p>
                     <div className={styles.adjustActions}>
-                      <button className={styles.btn}>Upload Adjustments</button>
-                      <button className={styles.btn}>Apply LOP</button>
-                      <button className={styles.btn}>
+                      <button className={"submitbtn"}>
+                        Upload Adjustments
+                      </button>
+                      <button className={"viewbtn"}>Apply LOP</button>
+                      <button className={"extrabtn"}>
                         Add Adhoc Adjustment
                       </button>
                     </div>
@@ -857,7 +862,7 @@ export default function PayrollRunEngine({ navigate }) {
 
                 {activeStep === 8 && (
                   <div>
-                    <p>
+                    <p className={styles.stepPara}>
                       Consolidated payroll summary for review. Download summary
                       or export GL.
                     </p>
@@ -885,13 +890,13 @@ export default function PayrollRunEngine({ navigate }) {
                     </div>
                     <div style={{ marginTop: 12 }}>
                       <button
-                        className={styles.btn}
+                        className={"submitbtn"}
                         onClick={() => exportSummary("preview")}
                       >
                         Download Summary
                       </button>
                       <button
-                        className={styles.btn}
+                        className={"viewbtn"}
                         onClick={() => exportSummary("preview")}
                       >
                         Export General Ledger
@@ -901,51 +906,28 @@ export default function PayrollRunEngine({ navigate }) {
                 )}
 
                 {activeStep === 9 && (
-                  <div>
-                    <p>
-                      Approval workflow: set approvers, sequence
-                      (parallel/sequential) and notes. Once approved, payroll
-                      locks.
-                    </p>
-                    <div className={styles.approvalForm}>
-                      <label>
-                        Approvers (multi-select){" "}
-                        <select multiple defaultValue={["Mgr1"]}>
-                          <option>Mgr1</option>
-                          <option>Mgr2</option>
-                        </select>
-                      </label>
-                      <label>
-                        Sequence{" "}
-                        <select defaultValue="parallel">
-                          <option value="parallel">Parallel</option>
-                          <option value="sequential">Sequential</option>
-                        </select>
-                      </label>
-                      <label>
-                        Notes <textarea rows="3"></textarea>
-                      </label>
-                      <div style={{ marginTop: 8 }}>
-                        <button
-                          className={styles.btn}
-                          onClick={() => approvalWorkflow()}
-                        >
-                          Save & Notify Approvers
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                  <StepApprovalWorkflow
+                    approverOptions={[
+                      "Manager 1",
+                      "Manager 2",
+                      "HR Head",
+                      "Finance Lead",
+                    ]}
+                    defaultApprover="Manager 1"
+                    defaultSequence="parallel"
+                    onSave={(data) => approvalWorkflow(data)}
+                  />
                 )}
 
                 {activeStep === 10 && (
                   <div>
-                    <p>
+                    <p className={styles.stepPara}>
                       Finalization: generate payslips, bank transfer sheet, TDS
                       reports, update employee ledger and lock payroll.
                     </p>
                     <div style={{ marginTop: 8 }}>
                       <button
-                        className={styles.btnPrimary}
+                        className={"viewbtn"}
                         onClick={() => finalizePayroll()}
                       >
                         Finalize Payroll
@@ -958,7 +940,7 @@ export default function PayrollRunEngine({ navigate }) {
 
             <div className={styles.history}>
               <h4>Payroll Run History</h4>
-              <table className={styles.table}>
+              <table className={"square-table w-100"}>
                 <thead>
                   <tr>
                     <th>Run ID</th>
@@ -979,13 +961,13 @@ export default function PayrollRunEngine({ navigate }) {
                       <td>{r.status}</td>
                       <td>
                         <button
-                          className={styles.smallBtn}
+                          className={"table-approved-btn mx-2"}
                           onClick={() => exportSummary(r.id)}
                         >
                           Download
                         </button>
                         <button
-                          className={styles.smallBtn}
+                          className={"table-view-btn"}
                           onClick={() => {
                             setToast("Reopen run (admin only) - simulate");
                             setTimeout(() => setToast(null), 1200);

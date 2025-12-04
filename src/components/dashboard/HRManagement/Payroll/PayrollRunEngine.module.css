@@ -68,7 +68,7 @@
   width: clamp(180px, 48%, 240px);
   flex: 1;
   min-width: 160px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.359);
 }
 
 .cardTitle {
@@ -105,7 +105,7 @@
   background: #fff;
   border-radius: 10px;
   padding: 12px;
-  box-shadow: 0 1px 6px rgba(2, 6, 23, 0.04);
+  box-shadow: 0 1px 6px rgba(3, 3, 3, 0.307);
 }
 
 /* each clickable row in stepper */
@@ -126,12 +126,12 @@
   width: 34px;
   height: 34px;
   border-radius: 8px;
-  background: #eef2f7;
+  background: var(--primmary-color);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  color: #0f172a;
+  color: white;
   font-size: 14px;
 }
 
@@ -144,15 +144,11 @@
 
 /* active step */
 .stepActiveA {
-  background: #e6fffb;
-  border-color: #c8f7f2;
+  background: var(--primmary-background);
+  box-shadow: 1px 2px rgba(0, 0, 0, 0.275);
 }
 
-/* done step */
-.stepDoneA {
-  background: #f0fdf4;
-  border-color: #d1fae5;
-}
+
 
 /* Right area */
 .right {
@@ -165,7 +161,7 @@
   background: #fff;
   padding: clamp(12px, 1.8vw, 18px);
   border-radius: 10px;
-  box-shadow: 0 1px 6px rgba(2, 6, 23, 0.04);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.288);
   margin-bottom: 12px;
 }
 
@@ -216,6 +212,47 @@
   cursor: pointer;
   padding: 6px;
   font-weight: 700;
+}
+
+.stepPara{
+  font-weight: 500;
+  font-size: 14px;
+  color: #787878;
+}
+
+.configGrid{
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+}
+
+.configGrid input[type="date"]{
+  width: 200px;
+  padding: 4px;
+  border: 1px solid gray;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.292);
+  margin-bottom: 10px;
+}
+
+.listing{
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.filter{
+  font-size: 16px;
+  font-weight: 500;
+  margin: 10px;
+}
+.filter select{
+  margin-left: 15px;
+  width: 150px;
+  padding: 4px;
+  border: 1px solid gray;
+  border-radius: 6px;
+  font-size: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.292);
 }
 
 .loading {
@@ -277,6 +314,9 @@
 /* history */
 .history {
   margin-top: 12px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.288);
+  border-radius: 6px;
+  padding: 20px;
 }
 
 /* drawer & modal (reuse look) */
@@ -367,4 +407,88 @@
   .modalCard {
     padding: 12px;
   }
+}
+
+
+/*  */
+.container {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  font-family: Inter, sans-serif;
+  color: #111827;
+}
+
+.stepPara {
+  font-size: 15px;
+  color: #4b5563;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #374151;
+}
+
+.input {
+  padding: 10px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  background: #f9fafb;
+  transition: 0.2s ease;
+}
+
+.input:focus {
+  border-color: #2563eb;
+  background: #ffffff;
+}
+
+.textarea {
+  padding: 10px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  resize: vertical;
+  background: #f9fafb;
+  transition: 0.2s ease;
+}
+
+.textarea:focus {
+  border-color: #2563eb;
+  background: white;
+}
+
+.submitBtn {
+  padding: 12px 18px;
+  margin-top: 10px;
+  background: #2563eb;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  width: fit-content;
+}
+
+.submitBtn:hover {
+  background: #1e40af;
 }
