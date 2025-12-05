@@ -1,0 +1,203 @@
+/* PayrollDashboard.module.css */
+
+.page {
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    padding: 20px;
+    color: #1f2937;
+    background: #f7f9fb;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.toolbar {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.primary {
+    background: #0f62fe;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+button {
+    padding: 6px 10px;
+    border: 1px solid #d1d5db;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+select {
+    padding: 6px 8px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 20px;
+    align-items: start;
+}
+
+.section {
+    background: white;
+    padding: 14px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+}
+
+.sectionTitle {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.tableWrap {
+    overflow: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.table th,
+.table td {
+    border-bottom: 1px solid #eef2f7;
+    padding: 8px 10px;
+    text-align: left;
+}
+
+.table thead th {
+    background: #f8fafc;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.rowActions {
+    display: flex;
+    gap: 6px;
+}
+
+.status {
+    padding: 4px 8px;
+    border-radius: 12px;
+    background: #eef2ff;
+    color: #0f62fe;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.actionsRow {
+    display: flex;
+    gap: 8px;
+}
+
+.quickActions {
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+    align-self: start;
+}
+
+.quickActions h3 {
+    margin-top: 0;
+}
+
+.quickActions ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 420px;
+}
+
+.form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 13px;
+}
+
+.form input[type="text"],
+.form input[type="date"],
+.form select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    margin-top: 6px;
+}
+
+.row {
+    display: flex;
+    gap: 12px;
+}
+
+.formActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.dynamic {
+    border: 1px dashed #e6edf7;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.archiveNote {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 8px;
+}
+
+.danger {
+    background: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+}

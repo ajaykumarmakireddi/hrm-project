@@ -9,6 +9,8 @@ import PayrollLoansAdvances from "./PayrollLoansAdvances";
 import PayrollRunEngine from "./PayrollRunEngine";
 import PayrollEmployeeAssignment from "./PayrollEmployeeAssignment";
 import SalaryStructures from "./SalaryStructures";
+import PayrollSalaryComponents from "./PayrollSalaryComponents";
+import PayCycles from "./PayCycles";
 
 
 function PayrollRouting() {
@@ -70,7 +72,20 @@ function PayrollRouting() {
               <SalaryStructures navigate={navigate} />
             </Suspense>
           } />
-
+        <Route path="/salary-components"
+          element={
+            <Suspense fallback={<BoxSkeleton />}>
+              <PayrollSalaryComponents navigate={navigate} />
+            </Suspense>
+          }
+        />
+        <Route path="/pay-cycles"
+          element={
+            <Suspense fallback={<BoxSkeleton />}>
+              <PayCycles navigate={navigate} />
+            </Suspense>
+          }
+        />
       </Routes>
     </>
   );

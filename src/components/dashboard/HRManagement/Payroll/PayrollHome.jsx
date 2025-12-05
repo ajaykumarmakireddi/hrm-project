@@ -36,6 +36,13 @@ function PayrollHome({ navigate }) {
           <button className={`homebtn`} onClick={() => navigate("/payroll/salary-structure")}>
             Salary Structure
           </button>
+
+          <button className={`homebtn`} onClick={() => navigate("/payroll/salary-components")}>
+            Salary Components
+          </button>
+          <button className={`homebtn`} onClick={() => navigate("/payroll/pay-cycles")} >
+            Pay Cycles
+          </button>
         </div>
       </div>
 
