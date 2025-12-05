@@ -297,10 +297,10 @@ function StructureModal({ open, initial, onClose, onSave, groups, countries }) {
               : "Create Salary Structure"}
           </h3>
           <div>
-            <button type="button" className={styles.btn} onClick={onClose}>
+            <button type="button" className={"cancelbtn"} onClick={onClose}>
               Cancel
             </button>
-            <button type="submit" className={styles.btnPrimary}>
+            <button type="submit" className={"submitbtn"}>
               {form.id ? "Save" : "Create"}
             </button>
           </div>
@@ -413,7 +413,7 @@ function StructureModal({ open, initial, onClose, onSave, groups, countries }) {
               <div className={styles.smallActions}>
                 <button
                   type="button"
-                  className={styles.btn}
+                  className={"submitbtn"}
                   onClick={addEarning}
                 >
                   Add Earning
@@ -481,7 +481,7 @@ function StructureModal({ open, initial, onClose, onSave, groups, countries }) {
                   </label>
                   <button
                     type="button"
-                    className={styles.removeBtn}
+                    className={"cancelbtn"}
                     onClick={() => removeEarning(i)}
                   >
                     Remove
@@ -497,7 +497,7 @@ function StructureModal({ open, initial, onClose, onSave, groups, countries }) {
               <div className={styles.smallActions}>
                 <button
                   type="button"
-                  className={styles.btn}
+                  className={"submitbtn"}
                   onClick={addDeduction}
                 >
                   Add Deduction
@@ -564,7 +564,7 @@ function StructureModal({ open, initial, onClose, onSave, groups, countries }) {
                     Statutory
                   </label>
                   <button
-                    className={styles.removeBtn}
+                    className={"cancelbtn"}
                     type="button"
                     onClick={() => removeDeduction(i)}
                   >
@@ -666,10 +666,10 @@ function StructureModal({ open, initial, onClose, onSave, groups, countries }) {
             />
 
             <div className={styles.modalActions}>
-              <button type="button" className={styles.btn} onClick={onClose}>
+              <button type="button" className={"cancelbtn"} onClick={onClose}>
                 Cancel
               </button>
-              <button type="submit" className={styles.btnPrimary}>
+              <button type="submit" className={"submitbtn"}>
                 {form.id ? "Update & New Version" : "Create Structure"}
               </button>
             </div>
@@ -691,11 +691,11 @@ function ViewStructureModal({ open, structure, onClose, onExport }) {
             {structure.name} — v{structure.version}
           </h3>
           <div>
-            <button className={styles.btn} onClick={onClose}>
+            <button className={"cancelbtn"} onClick={onClose}>
               Close
             </button>
             <button
-              className={styles.btn}
+              className={"submitbtn"}
               onClick={() => onExport(structure.id)}
             >
               Export
@@ -716,7 +716,7 @@ function ViewStructureModal({ open, structure, onClose, onExport }) {
           </div>
 
           <h4 style={{ marginTop: 12 }}>Earnings</h4>
-          <table className={styles.table}>
+          <table className={"square-table"}>
             <thead>
               <tr>
                 <th>Name</th>
@@ -736,7 +736,7 @@ function ViewStructureModal({ open, structure, onClose, onExport }) {
           </table>
 
           <h4 style={{ marginTop: 12 }}>Deductions</h4>
-          <table className={styles.table}>
+          <table className={"square-table"}>
             <thead>
               <tr>
                 <th>Name</th>
@@ -768,7 +768,7 @@ function ViewStructureModal({ open, structure, onClose, onExport }) {
           <pre className={styles.pre}>{structure.formulaSummary}</pre>
 
           <h4 style={{ marginTop: 12 }}>Version History</h4>
-          <table className={styles.table}>
+          <table className={"square-table"}>
             <thead>
               <tr>
                 <th>Version</th>
@@ -885,10 +885,9 @@ export default function SalaryStructures({ navigate }) {
       </p>
       <div className={styles.page}>
         <div className={styles.header}>
-          <h2>Salary Structures</h2>
           <div className={styles.topActions}>
             <button
-              className={styles.btn}
+              className={"homebtn"}
               onClick={() => {
                 setEditing(null);
                 setShowModal(true);
@@ -897,7 +896,7 @@ export default function SalaryStructures({ navigate }) {
               Create Salary Structure
             </button>
 
-            <label className={styles.btn}>
+            <label className={"homebtn"}>
               Import Structures
               <input
                 type="file"
@@ -908,7 +907,7 @@ export default function SalaryStructures({ navigate }) {
             </label>
 
             <button
-              className={styles.btn}
+              className={"homebtn"}
               onClick={() => {
                 navigator.clipboard &&
                   navigator.clipboard.writeText("Exported list stub");
@@ -920,7 +919,7 @@ export default function SalaryStructures({ navigate }) {
             </button>
 
             <button
-              className={styles.btn}
+              className={"homebtn"}
               onClick={() => alert("Manage component groups (simulate)")}
             >
               Manage Component Groups
@@ -928,48 +927,50 @@ export default function SalaryStructures({ navigate }) {
           </div>
         </div>
 
-        <div className={styles.filters}>
-          <div>
-            Country:
-            <select
-              value={filterCountry}
-              onChange={(e) => setFilterCountry(e.target.value)}
-            >
-              <option value="">All</option>
-              {countries.map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div>
-            Status:
-            <select
-              value={filterStatus}
-              onChange={(e) => setFilterStatus(e.target.value)}
-            >
-              <option value="">All</option>
-              <option>Active</option>
-              <option>Draft</option>
-              <option>Archived</option>
-            </select>
-          </div>
-          <div>
-            Search:
-            <input
-              placeholder="Structure name"
-              value={searchName}
-              onChange={(e) => setSearchName(e.target.value)}
-            />
+        <div className="d-flex justify-content-center">
+          <div className={styles.filter}>
+            <div>
+              Country:
+              <select
+                value={filterCountry}
+                onChange={(e) => setFilterCountry(e.target.value)}
+              >
+                <option value="">All</option>
+                {countries.map((c) => (
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              Status:
+              <select
+                value={filterStatus}
+                onChange={(e) => setFilterStatus(e.target.value)}
+              >
+                <option value="">All</option>
+                <option>Active</option>
+                <option>Draft</option>
+                <option>Archived</option>
+              </select>
+            </div>
+            <div>
+              Search:
+              <input
+                placeholder="Structure name"
+                value={searchName}
+                onChange={(e) => setSearchName(e.target.value)}
+              />
+            </div>
           </div>
         </div>
 
-        <div className={styles.tableWrap}>
+        <div className={"d-flex justify-content-center mt-3"}>
           {loading ? (
             <div className={styles.loading}>Loading...</div>
           ) : (
-            <table className={styles.table}>
+            <table className={"square-table w-75"}>
               <thead>
                 <tr>
                   <th>Structure Name</th>
@@ -980,7 +981,7 @@ export default function SalaryStructures({ navigate }) {
                   <th>Assigned</th>
                   <th>Status</th>
                   <th>Last Modified</th>
-                  <th>Actions</th>
+                  <th colSpan={4}>Actions</th>
                 </tr>
               </thead>
               <tbody>
@@ -1005,32 +1006,38 @@ export default function SalaryStructures({ navigate }) {
                       </Badge>
                     </td>
                     <td>{new Date(s.createdAt).toLocaleDateString()}</td>
-                    <td className={styles.actionsCell}>
+                    <td>
                       <button
-                        className={styles.smallBtn}
+                        className={"table-view-btn"}
                         onClick={() => {
                           setSelectedStructure(s);
                         }}
                       >
                         View
                       </button>
+                    </td>
+                    <td>
                       <button
-                        className={styles.smallBtn}
+                        className={"table-approved-btn"}
                         onClick={() => openEdit(s.id)}
                       >
                         Edit
                       </button>
+                    </td>
+                    <td>
                       <button
-                        className={styles.smallBtn}
+                        className={"table-pending-btn"}
                         onClick={() => onExport(s.id)}
                       >
                         Export
                       </button>
+                    </td>
+                    <td>
                       <button
-                        className={styles.smallBtn}
+                        className={"table-view-btn"}
                         onClick={() => assignEmployees(s.id)}
                       >
-                        Assign Employees
+                        Assign
                       </button>
                     </td>
                   </tr>

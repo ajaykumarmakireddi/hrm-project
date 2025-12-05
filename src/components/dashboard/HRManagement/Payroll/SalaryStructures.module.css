@@ -4,8 +4,8 @@
 
 .page {
     padding: 18px;
-    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-    background: #f7fafc;
+    background: white;
+    padding-top: 0;
     color: #0f172a;
 }
 
@@ -43,18 +43,23 @@
 }
 
 /* filters */
-.filters {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 12px;
-    align-items: center;
+.filter {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 10px;
+  width: 75%;
+  display: flex;
+  gap: 20px;
 }
-
-.filters select,
-.filters input {
-    padding: 6px 8px;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
+.filter select,
+.filter input {
+  margin-left: 15px;
+  width: 150px;
+  padding: 4px;
+  border: 1px solid gray;
+  border-radius: 6px;
+  font-size: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.292);
 }
 
 /* table */
@@ -130,7 +135,7 @@
 .modal {
     width: min(1100px, 98%);
     max-height: calc(100vh - 80px);
-    background: #fff;
+    background: var(--primmary-background);
     border-radius: 12px;
     box-shadow: 0 12px 40px rgba(2, 6, 23, 0.22);
     overflow: auto;
@@ -143,7 +148,7 @@
 .modalLarge {
     width: min(1100px, 96%);
     max-height: calc(100vh - 80px);
-    background: #fff;
+    background: var(--primmary-background);
     border-radius: 12px;
     box-shadow: 0 12px 40px rgba(2, 6, 23, 0.22);
     overflow: auto;
@@ -181,6 +186,7 @@
 .input {
     padding: 8px 10px;
     border-radius: 8px;
+    background-color: white;
     border: 1px solid #e2e8f0;
 }
 
@@ -188,6 +194,7 @@
     padding: 6px 8px;
     border-radius: 6px;
     border: 1px solid #e2e8f0;
+    background-color: white;
     width: 140px;
 }
 
@@ -206,6 +213,7 @@
     border-radius: 8px;
     border: 1px solid #e2e8f0;
     font-family: inherit;
+    background-color: white;
 }
 
 .smallActions {
