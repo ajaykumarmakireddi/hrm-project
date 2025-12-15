@@ -53,7 +53,7 @@ const SummaryCard = ({ title, value, sub }) => (
 );
 
 const SummaryCards = ({ summary }) => (
-  <div className={styles.summaryCards}>
+  <div className={styles.summaryRow}>
     <SummaryCard title="Total Employees" value={summary.totalEmployees} />
     <SummaryCard
       title="Total Gross Pay"
@@ -160,9 +160,9 @@ const CurrentPayCycle = ({ payCycle }) => (
 );
 
 const RecentPayrollRunsTable = ({ runs, onViewPayslip, onExport }) => (
-  <div className={styles.recentRuns}>
+  <div >
     <h3>Recent Payroll Runs</h3>
-    <table className={styles.table}>
+    <table className={"square-table w-100"}>
       <thead>
         <tr>
           <th>Pay Period</th>
@@ -189,14 +189,14 @@ const RecentPayrollRunsTable = ({ runs, onViewPayslip, onExport }) => (
             <td>
               <span className={styles.statusTag}>{r.status}</span>
             </td>
-            <td className={styles.actionsCell}>
+            <td >
               <button
-                className={styles.smallBtn}
+                className={'viewbtn'}
                 onClick={() => onViewPayslip(r)}
               >
-                View Payslip
+                View 
               </button>
-              <button className={styles.smallBtn} onClick={() => onExport(r)}>
+              <button className={'cancelbtn'} onClick={() => onExport(r)}>
                 Export
               </button>
             </td>
@@ -259,7 +259,7 @@ const AdvancedPanels = ({ panels }) => {
             <strong>{p.title}</strong>
             <div>
               <button
-                className={styles.panelToggle}
+                className={'generatebtn'}
                 onClick={() => toggle(p.key)}
               >
                 {open[p.key] ? "Collapse" : "Expand"}
