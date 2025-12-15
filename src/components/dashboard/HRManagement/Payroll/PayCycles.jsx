@@ -58,7 +58,9 @@ export default function PayCycles({ navigate }) {
 
   function saveCycle(formData) {
     if (editingCycle) {
-      setPayCycles((prev) => prev.map((c) => (c.id === editingCycle.id ? { ...c, ...formData } : c)));
+      setPayCycles((prev) =>
+        prev.map((c) => (c.id === editingCycle.id ? { ...c, ...formData } : c))
+      );
     } else {
       setPayCycles((prev) => [{ id: Date.now(), ...formData }, ...prev]);
     }
@@ -67,7 +69,11 @@ export default function PayCycles({ navigate }) {
   }
 
   function archiveSelected() {
-    setPayCycles((prev) => prev.map((c) => (selectedRows.includes(c.id) ? { ...c, status: "Archived" } : c)));
+    setPayCycles((prev) =>
+      prev.map((c) =>
+        selectedRows.includes(c.id) ? { ...c, status: "Archived" } : c
+      )
+    );
     setSelectedRows([]);
     setShowConfirm({ open: false, action: null });
   }
@@ -85,7 +91,9 @@ export default function PayCycles({ navigate }) {
           end.setDate(end.getDate() + (new Date(c.endDate).getDate() - 1));
           generated.push({
             id: Date.now() + Math.random(),
-            cycleName: `${c.payFrequency} - ${next.toLocaleString("default", { month: "short" })} ${next.getFullYear()}`,
+            cycleName: `${c.payFrequency} - ${next.toLocaleString("default", {
+              month: "short",
+            })} ${next.getFullYear()}`,
             country: c.country,
             payFrequency: c.payFrequency,
             startDate: next.toISOString().slice(0, 10),
@@ -102,8 +110,15 @@ export default function PayCycles({ navigate }) {
 
   function exportCycles() {
     // Export selected or all as CSV - simplified
-    const rows = (selectedRows.length ? payCycles.filter((p) => selectedRows.includes(p.id)) : payCycles)
-      .map((c) => `${c.cycleName},${c.country},${c.payFrequency},${c.startDate},${c.endDate},${c.cutOffDate},${c.payDate},${c.status}`)
+    const rows = (
+      selectedRows.length
+        ? payCycles.filter((p) => selectedRows.includes(p.id))
+        : payCycles
+    )
+      .map(
+        (c) =>
+          `${c.cycleName},${c.country},${c.payFrequency},${c.startDate},${c.endDate},${c.cutOffDate},${c.payDate},${c.status}`
+      )
       .join("\n");
     const blob = new Blob([rows], { type: "text/csv" });
     const url = URL.createObjectURL(blob);
@@ -121,9 +136,17 @@ export default function PayCycles({ navigate }) {
     } else if (action === "generateDraft") {
       alert("Draft payroll generated (demo).");
     } else if (action === "approve") {
-      setPayCycles((prev) => prev.map((c) => (c.status === "Draft" ? { ...c, status: "Approved" } : c)));
+      setPayCycles((prev) =>
+        prev.map((c) =>
+          c.status === "Draft" ? { ...c, status: "Approved" } : c
+        )
+      );
     } else if (action === "rollback") {
-      setPayCycles((prev) => prev.map((c) => (c.status === "Approved" ? { ...c, status: "Draft" } : c)));
+      setPayCycles((prev) =>
+        prev.map((c) =>
+          c.status === "Approved" ? { ...c, status: "Draft" } : c
+        )
+      );
     }
   }
 
@@ -135,20 +158,36 @@ export default function PayCycles({ navigate }) {
       </p>
       <div className={styles.page}>
         <header className={styles.header}>
-          <h1 className={styles.title}>Payroll — Pay Cycles</h1>
           <div className={styles.toolbar}>
-            <button className={styles.primary} onClick={openCreate}>Create Pay Cycle</button>
-            <button onClick={autoGenerate}>Auto-Generate Cycles</button>
-            <select value={selectedCountry} onChange={(e) => setSelectedCountry(e.target.value)} aria-label="Country selector">
+            <button className={"homebtn"} onClick={openCreate}>
+              Create Pay Cycle
+            </button>
+            <button className="homebtn" onClick={autoGenerate}>
+              Auto-Generate Cycles
+            </button>
+
+            <button
+              className="homebtn"
+              onClick={() => setShowBulkModal(true)}
+              disabled={selectedRows.length === 0}
+            >
+              Bulk Edit ({selectedRows.length})
+            </button>
+            <button className="homebtn" onClick={exportCycles}>
+              Export Cycles
+            </button>
+          </div>
+          <div>
+            <select
+              value={selectedCountry}
+              onChange={(e) => setSelectedCountry(e.target.value)}
+              aria-label="Country selector"
+            >
               <option>India</option>
               <option>US</option>
               <option>UAE</option>
               <option>UK</option>
             </select>
-            <button onClick={() => setShowBulkModal(true)} disabled={selectedRows.length === 0}>
-              Bulk Edit ({selectedRows.length})
-            </button>
-            <button onClick={exportCycles}>Export Cycles</button>
           </div>
         </header>
 
@@ -159,7 +198,10 @@ export default function PayCycles({ navigate }) {
             <div className={styles.filters}>
               <label>
                 Status:
-                <select value={filterStatus} onChange={(e) => setFilterStatus(e.target.value)}>
+                <select
+                  value={filterStatus}
+                  onChange={(e) => setFilterStatus(e.target.value)}
+                >
                   <option>All</option>
                   <option>Draft</option>
                   <option>Approved</option>
@@ -168,15 +210,38 @@ export default function PayCycles({ navigate }) {
                 </select>
               </label>
               <div className={styles.actionsRow}>
-                <button onClick={() => setShowConfirm({ open: true, action: "archive" })} disabled={selectedRows.length === 0}>Archive Selected</button>
+                <button
+                  onClick={() =>
+                    setShowConfirm({ open: true, action: "archive" })
+                  }
+                  className="submitbtn"
+                  disabled={selectedRows.length === 0}
+                >
+                  Archive Selected
+                </button>
               </div>
             </div>
 
             <div className={styles.tableWrap}>
-              <table className={styles.table}>
+              <table className={"square-table"}>
                 <thead>
                   <tr>
-                    <th><input type="checkbox" checked={selectedRows.length === activeCycles.length && activeCycles.length > 0} onChange={(e) => setSelectedRows(e.target.checked ? activeCycles.map(c => c.id) : [])} /></th>
+                    <th>
+                      <input
+                        type="checkbox"
+                        checked={
+                          selectedRows.length === activeCycles.length &&
+                          activeCycles.length > 0
+                        }
+                        onChange={(e) =>
+                          setSelectedRows(
+                            e.target.checked
+                              ? activeCycles.map((c) => c.id)
+                              : []
+                          )
+                        }
+                      />
+                    </th>
                     <th>Cycle Name</th>
                     <th>Country</th>
                     <th>Pay Frequency</th>
@@ -190,10 +255,18 @@ export default function PayCycles({ navigate }) {
                 </thead>
                 <tbody>
                   {activeCycles
-                    .filter((c) => filterStatus === "All" || c.status === filterStatus)
+                    .filter(
+                      (c) => filterStatus === "All" || c.status === filterStatus
+                    )
                     .map((cycle) => (
                       <tr key={cycle.id}>
-                        <td><input type="checkbox" checked={selectedRows.includes(cycle.id)} onChange={() => toggleRow(cycle.id)} /></td>
+                        <td>
+                          <input
+                            type="checkbox"
+                            checked={selectedRows.includes(cycle.id)}
+                            onChange={() => toggleRow(cycle.id)}
+                          />
+                        </td>
                         <td>{cycle.cycleName}</td>
                         <td>{cycle.country}</td>
                         <td>{cycle.payFrequency}</td>
@@ -201,16 +274,63 @@ export default function PayCycles({ navigate }) {
                         <td>{cycle.endDate}</td>
                         <td>{cycle.cutOffDate}</td>
                         <td>{cycle.payDate}</td>
-                        <td><span className={styles.status}>{cycle.status}</span></td>
+                        <td>
+                          <span className={styles.status}>{cycle.status}</span>
+                        </td>
                         <td className={styles.rowActions}>
-                          <button onClick={() => openEdit(cycle)}>Edit</button>
-                          <button onClick={() => setPayCycles((prev) => prev.map((c) => c.id === cycle.id ? { ...c, status: "Locked" } : c))}>Lock</button>
-                          <button onClick={() => setPayCycles((prev) => prev.map((c) => c.id === cycle.id ? { ...c, status: "Disbursed" } : c))}>Disburse</button>
-                          <button onClick={() => setPayCycles((prev) => prev.map((c) => c.id === cycle.id ? { ...c, status: "Archived" } : c))}>Archive</button>
+                          <button className="table-view-btn mb-2" onClick={() => openEdit(cycle)}>Edit</button>
+                          <button
+                          className="table-pending-btn mb-2"
+                            onClick={() =>
+                              setPayCycles((prev) =>
+                                prev.map((c) =>
+                                  c.id === cycle.id
+                                    ? { ...c, status: "Locked" }
+                                    : c
+                                )
+                              )
+                            }
+                          >
+                            Lock
+                          </button>
+                          <button
+                          className="table-declined-btn"
+                            onClick={() =>
+                              setPayCycles((prev) =>
+                                prev.map((c) =>
+                                  c.id === cycle.id
+                                    ? { ...c, status: "Disbursed" }
+                                    : c
+                                )
+                              )
+                            }
+                          >
+                            Disburse
+                          </button>
+                          <button
+                          className="table-approved-btn"
+                            onClick={() =>
+                              setPayCycles((prev) =>
+                                prev.map((c) =>
+                                  c.id === cycle.id
+                                    ? { ...c, status: "Archived" }
+                                    : c
+                                )
+                              )
+                            }
+                          >
+                            Archive
+                          </button>
                         </td>
                       </tr>
                     ))}
-                  {activeCycles.length === 0 && <tr><td colSpan="10" style={{ textAlign: "center" }}>No active cycles</td></tr>}
+                  {activeCycles.length === 0 && (
+                    <tr>
+                      <td colSpan="10" style={{ textAlign: "center" }}>
+                        No active cycles
+                      </td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>
@@ -219,7 +339,7 @@ export default function PayCycles({ navigate }) {
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>Upcoming & Scheduled Cycles</h2>
             <div className={styles.tableWrap}>
-              <table className={styles.table}>
+              <table className={"square-table"}>
                 <thead>
                   <tr>
                     <th>Cycle Name</th>
@@ -239,8 +359,18 @@ export default function PayCycles({ navigate }) {
                       <td>{u.endDate}</td>
                       <td>{u.payDate}</td>
                       <td>
-                        <button onClick={() => openEdit(u)}>Edit</button>
-                        <button onClick={() => setPayCycles((prev) => [{ ...u, status: "Draft" }, ...prev])}>Approve</button>
+                        <button className="table-view-btn ms-2" onClick={() => openEdit(u)}>Edit</button>
+                        <button
+                        className="table-approved-btn"
+                          onClick={() =>
+                            setPayCycles((prev) => [
+                              { ...u, status: "Draft" },
+                              ...prev,
+                            ])
+                          }
+                        >
+                          Approve
+                        </button>
                       </td>
                     </tr>
                   ))}
@@ -252,10 +382,11 @@ export default function PayCycles({ navigate }) {
           <section className={styles.section}>
             <h2 className={styles.sectionTitle}>Archived Cycles</h2>
             <div className={styles.archiveNote}>
-              Contains completed/locked/financial-year grouped cycles. Export options: Payslips, Bank file, Tax files.
+              Contains completed/locked/financial-year grouped cycles. Export
+              options: Payslips, Bank file, Tax files.
             </div>
             <div className={styles.tableWrap}>
-              <table className={styles.table}>
+              <table className={"square-table"}>
                 <thead>
                   <tr>
                     <th>Cycle Name</th>
@@ -274,10 +405,20 @@ export default function PayCycles({ navigate }) {
                       <td>{a.startDate}</td>
                       <td>{a.endDate}</td>
                       <td>{a.payDate}</td>
-                      <td><button onClick={() => alert("Trigger export (demo).")}>Export</button></td>
+                      <td>
+                        <button onClick={() => alert("Trigger export (demo).")}>
+                          Export
+                        </button>
+                      </td>
                     </tr>
                   ))}
-                  {archivedCycles.length === 0 && <tr><td colSpan="6" style={{ textAlign: "center" }}>No archived cycles</td></tr>}
+                  {archivedCycles.length === 0 && (
+                    <tr>
+                      <td colSpan="6" style={{ textAlign: "center" }}>
+                        No archived cycles
+                      </td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>
@@ -286,61 +427,124 @@ export default function PayCycles({ navigate }) {
           <aside className={styles.quickActions}>
             <h3>Quick Actions</h3>
             <ul>
-              <li><button onClick={() => quickAction("syncAttendance")}>Sync Attendance</button></li>
-              <li><button onClick={() => quickAction("syncLeaves")}>Sync Leaves</button></li>
-              <li><button onClick={() => quickAction("generateDraft")}>Generate Draft Payroll</button></li>
-              <li><button onClick={() => quickAction("approve")}>Approve Cycle</button></li>
-              <li><button onClick={() => quickAction("rollback")}>Rollback Draft</button></li>
+              <li>
+                <button onClick={() => quickAction("syncAttendance")}>
+                  Sync Attendance
+                </button>
+              </li>
+              <li>
+                <button onClick={() => quickAction("syncLeaves")}>
+                  Sync Leaves
+                </button>
+              </li>
+              <li>
+                <button onClick={() => quickAction("generateDraft")}>
+                  Generate Draft Payroll
+                </button>
+              </li>
+              <li>
+                <button onClick={() => quickAction("approve")}>
+                  Approve Cycle
+                </button>
+              </li>
+              <li>
+                <button onClick={() => quickAction("rollback")}>
+                  Rollback Draft
+                </button>
+              </li>
             </ul>
           </aside>
         </main>
 
         {/* Modals (centered) */}
         {showCreateModal && (
-          <Modal title={editingCycle ? "Edit Pay Cycle" : "Create Pay Cycle"} onClose={() => { setShowCreateModal(false); setEditingCycle(null); }}>
-            <CreateEditForm initial={editingCycle} country={selectedCountry} onCancel={() => setShowCreateModal(false)} onSave={saveCycle} />
+          <Modal
+            title={editingCycle ? "Edit Pay Cycle" : "Create Pay Cycle"}
+            onClose={() => {
+              setShowCreateModal(false);
+              setEditingCycle(null);
+            }}
+          >
+            <CreateEditForm
+              initial={editingCycle}
+              country={selectedCountry}
+              onCancel={() => setShowCreateModal(false)}
+              onSave={saveCycle}
+            />
           </Modal>
         )}
 
         {showBulkModal && (
-          <Modal title="Bulk Edit Pay Cycles" onClose={() => setShowBulkModal(false)}>
-            <BulkEditForm selectedIds={selectedRows} onApply={(changes) => {
-              setPayCycles((prev) => prev.map((c) => selectedRows.includes(c.id) ? { ...c, ...changes } : c));
-              setShowBulkModal(false);
-              setSelectedRows([]);
-            }} onCancel={() => setShowBulkModal(false)} />
+          <Modal
+            title="Bulk Edit Pay Cycles"
+            onClose={() => setShowBulkModal(false)}
+          >
+            <BulkEditForm
+              selectedIds={selectedRows}
+              onApply={(changes) => {
+                setPayCycles((prev) =>
+                  prev.map((c) =>
+                    selectedRows.includes(c.id) ? { ...c, ...changes } : c
+                  )
+                );
+                setShowBulkModal(false);
+                setSelectedRows([]);
+              }}
+              onCancel={() => setShowBulkModal(false)}
+            />
           </Modal>
         )}
 
         {showConfirm.open && showConfirm.action === "archive" && (
-          <Modal title="Confirm Archive" onClose={() => setShowConfirm({ open: false, action: null })}>
+          <Modal
+            title="Confirm Archive"
+            onClose={() => setShowConfirm({ open: false, action: null })}
+          >
             <div>
-              <p>Are you sure you want to archive {selectedRows.length} selected cycle(s)?</p>
-              <div style={{ display: "flex", gap: 8, justifyContent: "flex-end", marginTop: 16 }}>
-                <button onClick={() => setShowConfirm({ open: false, action: null })}>Cancel</button>
-                <button onClick={archiveSelected} className={styles.danger}>Archive</button>
+              <p>
+                Are you sure you want to archive {selectedRows.length} selected
+                cycle(s)?
+              </p>
+              <div
+                style={{
+                  display: "flex",
+                  gap: 8,
+                  justifyContent: "flex-end",
+                  marginTop: 16,
+                }}
+              >
+                <button
+                  onClick={() => setShowConfirm({ open: false, action: null })}
+                >
+                  Cancel
+                </button>
+                <button onClick={archiveSelected} className={styles.danger}>
+                  Archive
+                </button>
               </div>
             </div>
           </Modal>
         )}
       </div>
-
     </>
   );
 }
 
 /* CreateEditForm component (internal) */
 function CreateEditForm({ initial = null, country, onCancel, onSave }) {
-  const [form, setForm] = useState(() => initial || {
-    cycleName: "",
-    country,
-    payFrequency: "Monthly",
-    startDate: "",
-    endDate: "",
-    cutOffDate: "",
-    payDate: "",
-    status: "Draft",
-  });
+  const [form, setForm] = useState(
+    () =>
+      initial || {
+        cycleName: "",
+        country,
+        payFrequency: "Monthly",
+        startDate: "",
+        endDate: "",
+        cutOffDate: "",
+        payDate: "",
+        status: "Draft",
+      }
+  );
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -359,9 +563,15 @@ function CreateEditForm({ initial = null, country, onCancel, onSave }) {
 
   return (
     <form onSubmit={submit} className={styles.form}>
+      <div className={styles.row}>
       <label>
         Pay Cycle Name
-        <input name="cycleName" value={form.cycleName} onChange={handleChange} placeholder="Auto-suggested label" />
+        <input
+          name="cycleName"
+          value={form.cycleName}
+          onChange={handleChange}
+          placeholder="Auto-suggested label"
+        />
       </label>
       <label>
         Country / Region
@@ -372,9 +582,14 @@ function CreateEditForm({ initial = null, country, onCancel, onSave }) {
           <option>UK</option>
         </select>
       </label>
+      </div> <div className={styles.row}>
       <label>
         Pay Frequency
-        <select name="payFrequency" value={form.payFrequency} onChange={handleChange}>
+        <select
+          name="payFrequency"
+          value={form.payFrequency}
+          onChange={handleChange}
+        >
           <option>Monthly</option>
           <option>Weekly</option>
           <option>Biweekly</option>
@@ -382,24 +597,45 @@ function CreateEditForm({ initial = null, country, onCancel, onSave }) {
           <option>Custom</option>
         </select>
       </label>
+      </div> 
       <div className={styles.row}>
         <label>
           Start Date
-          <input type="date" name="startDate" value={form.startDate} onChange={handleChange} />
+          <input
+            type="date"
+            name="startDate"
+            value={form.startDate}
+            onChange={handleChange}
+          />
         </label>
         <label>
           End Date
-          <input type="date" name="endDate" value={form.endDate} onChange={handleChange} />
+          <input
+            type="date"
+            name="endDate"
+            value={form.endDate}
+            onChange={handleChange}
+          />
         </label>
       </div>
       <div className={styles.row}>
         <label>
           Cut-off Date
-          <input type="date" name="cutOffDate" value={form.cutOffDate} onChange={handleChange} />
+          <input
+            type="date"
+            name="cutOffDate"
+            value={form.cutOffDate}
+            onChange={handleChange}
+          />
         </label>
         <label>
           Pay Date
-          <input type="date" name="payDate" value={form.payDate} onChange={handleChange} />
+          <input
+            type="date"
+            name="payDate"
+            value={form.payDate}
+            onChange={handleChange}
+          />
         </label>
       </div>
 
@@ -408,21 +644,27 @@ function CreateEditForm({ initial = null, country, onCancel, onSave }) {
         <legend>Country-specific / Advanced Settings</legend>
         <label>
           Allow Mid-cycle Joinees
-          <select name="midJoin" onChange={(e) => { }} defaultValue="Yes">
-            <option>Yes</option><option>No</option>
+          <select name="midJoin" onChange={(e) => {}} defaultValue="Yes">
+            <option>Yes</option>
+            <option>No</option>
           </select>
         </label>
         <label>
           Auto Generate Payroll Draft
-          <select name="autoDraft" onChange={(e) => { }} defaultValue="Yes">
-            <option>Yes</option><option>No</option>
+          <select name="autoDraft" onChange={(e) => {}} defaultValue="Yes">
+            <option>Yes</option>
+            <option>No</option>
           </select>
         </label>
       </fieldset>
 
       <div className={styles.formActions}>
-        <button type="button" onClick={onCancel}>Cancel</button>
-        <button type="submit" className={styles.primary}>Save</button>
+        <button type="button" className="cancelbtn" onClick={onCancel}>
+          Cancel
+        </button>
+        <button type="submit" className={"submitbtn"}>
+          Save
+        </button>
       </div>
     </form>
   );
@@ -439,7 +681,12 @@ function BulkEditForm({ selectedIds = [], onApply, onCancel }) {
       <p>Applying changes to {selectedIds.length} cycle(s).</p>
       <label>
         Set Status
-        <select value={changes.status} onChange={(e) => setChanges((s) => ({ ...s, status: e.target.value }))}>
+        <select
+          value={changes.status}
+          onChange={(e) =>
+            setChanges((s) => ({ ...s, status: e.target.value }))
+          }
+        >
           <option value="">--no change--</option>
           <option>Draft</option>
           <option>Approved</option>
@@ -450,7 +697,12 @@ function BulkEditForm({ selectedIds = [], onApply, onCancel }) {
       </label>
       <label>
         Set Country
-        <select value={changes.country} onChange={(e) => setChanges((s) => ({ ...s, country: e.target.value }))}>
+        <select
+          value={changes.country}
+          onChange={(e) =>
+            setChanges((s) => ({ ...s, country: e.target.value }))
+          }
+        >
           <option value="">--no change--</option>
           <option>India</option>
           <option>US</option>
@@ -458,8 +710,10 @@ function BulkEditForm({ selectedIds = [], onApply, onCancel }) {
         </select>
       </label>
       <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
-        <button onClick={onCancel}>Cancel</button>
-        <button onClick={apply} className={styles.primary}>Apply</button>
+        <button onClick={onCancel} className="cancelbtn">Cancel</button>
+        <button onClick={apply} className={"submitbtn"}>
+          Apply
+        </button>
       </div>
     </div>
   );
